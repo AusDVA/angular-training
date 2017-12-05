@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +14,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
