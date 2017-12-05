@@ -1,3 +1,5 @@
+import { StoreModule } from '@ngrx/store';
+import { driversReducer } from './+state/drivers.reducers';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +9,9 @@ import { DriversProfileComponent } from './drivers-profile/drivers-profile.compo
 @NgModule({
   imports: [
     CommonModule,
-    DriversRoutingModule
+    DriversRoutingModule,
+    StoreModule.forRoot({drivers: driversReducer})
+
   ],
   declarations: [DriversProfileComponent]
 })
