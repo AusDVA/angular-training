@@ -6,12 +6,14 @@ import { BoatLicenseRoutingModule } from './boat-license-routing.module';
 import { BoatLicenseApplicationComponent } from './boat-license-application/boat-license-application.component';
 import { BoatLicenseSubmitComponent } from './boat-license-submit/boat-license-submit.component';
 import { BoatLicenseService } from './boat-license.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    BoatLicenseRoutingModule
+    BoatLicenseRoutingModule,
+    ReactiveFormsModule
   ],
   exports:[
     BoatLicenseApplicationComponent

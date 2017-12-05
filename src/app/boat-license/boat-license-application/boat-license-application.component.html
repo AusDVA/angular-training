@@ -1,1 +1,98 @@
-<p>Boat License</p>
+<mat-card>
+  <h2>Boating License Form</h2>
+  <div class="container">
+    <form [formGroup]="boatApplicationForm" (ngSubmit)="onSubmit()">
+
+      <section class="section" *ngIf="error$ | async; let error">
+        <mat-error>
+          {{error}}
+        </mat-error>
+      </section>
+
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName">
+
+        <mat-error *ngIf="boatApplicationForm.get('firstName').hasError('required')">
+          First Name Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName">
+
+        <mat-error *ngIf="boatApplicationForm.get('lastName').hasError('required')">
+          Last Name Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+        <mat-error *ngIf="boatApplicationForm.get('dateOfBirth').hasError('required')">
+          Date of Birth Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Gender" formControlName="gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{ gender.viewValue }}
+           </mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="boatApplicationForm.get('gender').hasError('required')">
+          Gender Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address">
+
+        <mat-error *ngIf="boatApplicationForm.get('address').hasError('required')">
+          Address Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Medical Conditions" formControlName="medicalConditions">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="License Type" formControlName="typeOfLicense">          
+            <mat-option *ngFor="let licenseType of licenseTypes" [value]="licenseType.value">
+                {{ licenseType.viewValue }}
+             </mat-option>
+          </mat-select>
+
+        <mat-error *ngIf="boatApplicationForm.get('typeOfLicense').hasError('required')">
+          License Type Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Expiry" formControlName="expiry">          
+          <mat-option *ngFor="let expiryDate of expiryDates" [value]="expiryDate.value">
+              {{ expiryDate.viewValue }}
+           </mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="boatApplicationForm.get('expiry').hasError('required')">
+          Expiry Is
+          <strong>Required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <div style="margin-bottom: 1em">
+        <button mat-raised-button color="primary" type="submit" class="btn btn-success">Save</button>
+      </div>
+    </form>
+  </div>
+</mat-card>
