@@ -1,3 +1,5 @@
+import { DriversLicenceRegistration } from '../models/drivers';
+import * as DriversActions from './drivers.actions';
 export const DRIVERS_STATE_NAME = 'drivers';
 
 export interface DriversLicenceRegistrationState {
