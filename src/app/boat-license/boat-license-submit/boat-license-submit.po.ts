@@ -13,4 +13,4 @@ export class HomePage {
     return element(by.css('ngp-home button')).click();
   }
 
-}
+    }
