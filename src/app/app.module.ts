@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './lib/material/material.module';
+import { DriverProfileComponent } from './driver/driver-profile/driver-profile.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DriverProfileComponent
   ],
   imports: [
     BrowserModule,
