@@ -1,17 +1,25 @@
-import { HomePage } from './home.po';
+import { SubmitPage } from './boat-license-submit.po';
 
-describe('Page: Home Page', () => {
+describe('Page: Submitted Page', () => {
 
   it(`should have a new message on button click`, async () => {
-    HomePage.navigateTo();
+    SubmitPage.navigateTo();
 
-    const firstMessage = await HomePage.getMessageText();
+    const firstMessage = await SubmitPage.getConfirmationLabel();
 
-    HomePage.getNextMessage();
+    SubmitPage.getConfirmationLabel();
 
-    const secondMessage = await HomePage.getMessageText();
+    const secondMessage = await SubmitPage.getRegoLabel();
 
-    expect(firstMessage).not.toEqual(secondMessage);
-  });
+    SubmitPage.getRegoLabel();
+
+    const thirdMessage = await SubmitPage.getStatusLabel();
+    
+        SubmitPage.getStatusLabel();
+
+    expect(firstMessage).toEqual('confirmationLabel');
+    expect(secondMessage).toEqual('registrationLabel');
+    expect(thirdMessage).toEqual('statusLabel');
 
 });
+})
