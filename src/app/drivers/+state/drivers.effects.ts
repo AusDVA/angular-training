@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
 import { DriversService } from '../drivers.service';
-// import * as DriversActions from './drivers.actions'; // uncomment once created
+import { HttpErrorResponse } from '@angular/common/http';
+import * as DriversActions from './drivers.actions'; // uncomment once created
 
 @Injectable()
 export class DriversEffects {
@@ -13,8 +14,7 @@ export class DriversEffects {
 
   @Effect()
   loadDriverViewData$ = this.actions$
-    // .ofType<DriversActions.LoadDriverViewData>(DriversActions.LOAD_DRIVER_VIEW_DATA)
-    .ofType(any)
+    .ofType<DriversActions.LoadDriverViewData>(DriversActions.LOAD_DRIVER_VIEW_DATA)
     .pipe(
       switchMap(action => {
         return this.driversService.getDriverRegoInfo(action.payload).pipe(
@@ -22,20 +22,19 @@ export class DriversEffects {
             // return new DriversActions.LoadDriverViewDataAction(driver);
             return 'FIXME';
           }) // ,
-          // catchError((error: HttpErrorResponse) => {
-          //     console.error('Fail: LoadDriverViewDataAction');
-          //     const message =
-          //         error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-          //     return of(new UserActions.LoadError(message));
-          // })
+          catchError((error: HttpErrorResponse) => {
+              console.error('Fail: LoadDriverViewDataAction');
+              const message =
+                  error.status === 404 ? 'Drivers Licence not found' : error.statusText;
+              return of(new UserActions.LoadError(message));
+          })
         );
       })
     );
 
   @Effect()
   submitDriver$ = this.actions$
-    // .ofType<DriversActions.SubmitDriver>(DriversActions.SUBMIT_DRIVER)
-    .ofType(any)
+    .ofType<DriversActions.SubmitDriver>(DriversActions.SUBMIT_DRIVER)
     .pipe(
       switchMap(action => {
           // delete once created
@@ -50,12 +49,12 @@ export class DriversEffects {
                 return 'FIXME';
               }
             }) // ,
-            // catchError((error: HttpErrorResponse) => {
-            //     console.error('Fail: LoadDriverViewData');
-            //     const message =
-            //         error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-            //     return of(new UserActions.SubmitError(message));
-            // })
+            catchError((error: HttpErrorResponse) => {
+                console.error('Fail: LoadDriverViewData');
+                const message =
+                    error.status === 404 ? 'Drivers Licence not found' : error.statusText;
+                return of(new UserActions.SubmitError(message));
+            })
           );
       })
     );
