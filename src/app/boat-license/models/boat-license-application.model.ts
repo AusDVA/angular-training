@@ -9,5 +9,5 @@ export interface BoatLicenseApplication {
     medicalConditions?: string;
     typeOfLicense: string;
     expiry: Date;
-    status: string;   
+    status: string;
 }

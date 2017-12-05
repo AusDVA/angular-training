@@ -3,7 +3,4 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
-export const environment = {
-  production: false,
-  apiUrl: 'https://zware-ngnewapi.azurewebsites.net/api/licences/boating'
-};
+export const environment = { production: false, apiUrl: 'http://zware-ngnewapi.azurewebsites.net/api' };

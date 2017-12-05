@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,6 +13,7 @@ import { DriversModule } from './drivers/drivers.module';
 import { BoatLicenseModule } from './boat-license/boat-license.module';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -23,14 +25,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
-    MaterialModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    MaterialModule, DriversModule,
+    MaterialModule, DriversModule, BoatLicenseModule,
+    HttpClientModule,
     NoopAnimationsModule,
-    MaterialModule,
-    BoatLicenseModule
+    StoreDevtoolsModule.instrument({
+      maxAge: 30
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

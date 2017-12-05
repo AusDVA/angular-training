@@ -25,7 +25,6 @@ const MODULES = [MatCardModule,
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
-  MatToolbarModule,
   MatGridListModule,
   MatListModule
 
