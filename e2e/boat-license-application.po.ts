@@ -2,7 +2,7 @@ import { browser, by, element } from 'protractor';
 
 export class BoatApplicationPage {
   static navigateTo() {
-    return browser.get('/');
+    return browser.get('/boatlicense/boatLicenseForm');
   }
 
   static getCurrentUrl() {
@@ -10,35 +10,35 @@ export class BoatApplicationPage {
   }
 
   static getFirstName() {
-        return element(by.css('ngp-home h1'));
+        return element(by.id('firstName'));
   }
 
   static getLastName() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('lastName'));
 }
 
 static getAddress() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('address'));
 }
 
 static getDOB() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('dateOfBirth'));
 }
 
 static getGender() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('gender'));
 }
 
 static getTypeOfLicense() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('typeOfLicense'));
 }
 
 static getMedicalConditions() {
-    return element(by.css('ngp-home h1'));
+    return element(by.id('medicalConditions'));
 }
 
 static submitApplication() {
-    return element(by.css('ngp-home button')).click();
+    return element(by.id('submit')).click();
   }
 
 }

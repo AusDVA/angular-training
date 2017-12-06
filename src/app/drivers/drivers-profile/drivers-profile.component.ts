@@ -1,4 +1,4 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -43,6 +43,8 @@ export class DriversProfileComponent implements OnInit {
 
   onSubmit() {
     // uncomment once implemeneted/fixed
+    console.log("calling submit");
+
     const newDriversLicenceRego = this.prepareDriversLicenceRego();
     this.store.dispatch(new DriversActions.SubmitAction(newDriversLicenceRego));
   }
