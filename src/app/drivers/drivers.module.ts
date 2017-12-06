@@ -7,11 +7,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DriversRoutingModule } from './drivers-routing.module';
 import { DriversProfileComponent } from './drivers-profile/drivers-profile.component';
 import { DriversService } from './drivers.service';
+import { MaterialModule } from '../lib/material/material.module';
 @NgModule({
   imports: [
     CommonModule,
     DriversRoutingModule,
-	ReactiveFormsModule,
+  ReactiveFormsModule,
+  MaterialModule,
     StoreModule.forRoot({drivers: driversReducer})
 
   ],
