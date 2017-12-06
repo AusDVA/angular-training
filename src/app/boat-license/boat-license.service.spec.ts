@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 
 import { BoatLicenseService } from './boat-license.service';
 
-describe('BoatLicenseService', () => {
+fdescribe('BoatLicenseService', () => {
 
   let boatLicenseService: BoatLicenseService;
 
@@ -33,7 +33,7 @@ describe('BoatLicenseService', () => {
         done();
       });
 
-    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/boat-license-application`);
+    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/licences/boating`);
     saveRequest.error(new ErrorEvent('ERROR_SUBMITTING_BOAT_LICENSE_APP_FORM'));
 
     httpMock.verify();
@@ -48,7 +48,7 @@ describe('BoatLicenseService', () => {
       done();
     });
 
-    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/boat-license-application`);
+    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/licences/boating`);
     saveRequest.flush(expectedResponse);
 
     httpMock.verify();
