@@ -56,18 +56,6 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
-
-        <mat-error *ngIf="userForm.get('TypeOfLicence').hasError('required')">
-          Last Name is
-          <strong>required</strong>
-        </mat-error>
-
-      </mat-form-field>
-
-
-      <mat-form-field>
-
         <input matInput placeholder="Address" formControlName="Address">
 
         <mat-error *ngIf="userForm.get('Address').hasError('required')">
