@@ -12,6 +12,8 @@ let firstUrl;
 describe('Page: Home Page', () => {
 
   beforeEach(function() {
+    BoatApplicationPage.navigateTo();
+
     firstName = BoatApplicationPage.getFirstName();
     lastName = BoatApplicationPage.getLastName();
     address = BoatApplicationPage.getAddress();
@@ -23,13 +25,12 @@ describe('Page: Home Page', () => {
 
   });
 
-  it(`BoatL icense submission test`, async () => {
-    BoatApplicationPage.navigateTo();
+  it(`Boat License submission test`, async () => {
 
     firstName.sendKeys('MyFirstName');
     lastName.sendKeys('MyLastName');
     address.sendKeys('1 MyAddress Street');
-    dob.sendKeys('18/07/1995');
+    dob.sendKeys('25/02/1826');
     gender.sendKeys('Male');
     typeOfLicense.sendKeys('A');
     firstName.sendKeys('Blind');
