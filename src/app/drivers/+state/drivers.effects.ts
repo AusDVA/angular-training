@@ -43,7 +43,7 @@ export class DriversEffects {
         switchMap(action => {
           return this.driversService.getAllDriverRegoInfo().pipe(
             map(driverList => {
-              return new DriversActions.LoadAction(driverList);
+              return new DriversActions.LoadAllAction(driverList);
             }),
             catchError((error: HttpErrorResponse) => {
                 console.error('Fail: Get All Driver Regos');

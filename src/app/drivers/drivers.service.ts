@@ -35,7 +35,7 @@ export class DriversService {
         }
       }
 
-  getAllDriverRegoInfo(): Observable<DriversLicenceRegistration> {
-    return this.httpClient.get<DriversLicenceRegistration>(`${environment.apiUrl}/licences/driving/`);
+  getAllDriverRegoInfo(): Observable<DriversLicenceRegistration[]> {
+    return this.httpClient.get<DriversLicenceRegistration[]>(`${environment.apiUrl}/licences/driving/`);
   }
 }

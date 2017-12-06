@@ -5,6 +5,7 @@ import { DriversLicenceRegistration } from '../models/driversLicenceRegistration
 export const GET_DRIVER = '[Drivers] Get';
 export const GET_ALL_DRIVERS = '[Drivers] GetAll';
 export const LOAD_DRIVER = '[Drivers] Load';
+export const LOAD_ALL_DRIVER = '[Drivers] LoadAll';
 export const SUBMIT = '[Drivers] Sumbit';
 export const SUBMIT_ERROR = '[Drivers] SumbitError';
 export const SUBMIT_SUCCESS = '[Drivers] SumbitSUCCESS';
@@ -17,12 +18,16 @@ export class GetAction implements Action {
 
 export class GetAllAction implements Action {
     readonly type = GET_ALL_DRIVERS;
-    constructor(public payload: null) { }
+    constructor() { }
 }
 
 export class LoadAction implements Action {
     readonly type = LOAD_DRIVER;
     constructor(public payload: DriversLicenceRegistration) { }
+}
+export class LoadAllAction implements Action {
+    readonly type = LOAD_ALL_DRIVER;
+    constructor(public payload: DriversLicenceRegistration[]) { }
 }
 
 export class SubmitAction implements Action {
@@ -50,4 +55,5 @@ export class LoadDriverViewDataAction implements Action {
 export type ActionTypes = SubmitAction
                           |SubmitErrorAction
                           |SubmitSuccessAction
+                          |LoadAllAction
                           |LoadDriverViewDataAction;

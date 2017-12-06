@@ -50,6 +50,12 @@ export function driversReducer(state = InitialState, action: DriversActions.Acti
             submitting: false,
             error: null
         };
+        case DriversActions.LOAD_ALL_DRIVER:
+        return {
+            driversLicenceRegistration: action.payload,
+            submitting: false,
+            error: null
+        };
 
         default:
             return state;

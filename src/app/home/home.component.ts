@@ -24,14 +24,14 @@ export class HomeComponent implements OnInit {
   constructor(private driversService: DriversService, private store: Store<State>, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.driversService.getAllDriverRegoInfo().subscribe(drivers => {
-      this.drivers = drivers;
-    });
-    // this.store.dispatch(new DriverActions.GetAllAction(null));
-
-    // this.store.select(DriverSelectors.selectDriversLicence).subscribe(drivers => {
+    // this.driversService.getAllDriverRegoInfo().subscribe(drivers => {
     //   this.drivers = drivers;
     // });
+    this.store.dispatch(new DriverActions.GetAllAction());
+
+    this.store.select(DriverSelectors.selectDriversLicence).subscribe(drivers => {
+      this.drivers = drivers;
+    });
 
   }
 
