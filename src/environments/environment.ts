@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://zware-ngnewapi.azurewebsites.net/api/canberra-201712'
+  apiUrl: 'https://zware-ngnewapi.azurewebsites.net/api/licences/boating'
 };
