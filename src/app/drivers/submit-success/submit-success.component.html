@@ -1,17 +1,17 @@
 <mat-card>
   <h2>Submission successful!</h2>
 
-  <ul *ngIf="dlr">
-    <li>First Name: {{dlr.FirstName}}</li>
-    <li>Last Name: {{dlr.LastName}}</li>
-    <li>Gender: {{dlr.Gender}}</li>
-    <li>Date of Birth: {{dlr.DOB}}</li>
-    <li>Licence Type: {{dlr.TypeOfLicence}}</li>
-    <li>Address: {{dlr.Address}}</li>
-    <li>Medical Conditions: {{dlr.MedicalConditions}}</li>
-    <li>Lengh of Lincence: {{dlr.LengthOfLicence}}</li>
-    <li>Driving Offences: {{dlr.DrivingOffences}}</li> 
-  </ul>
+  <mat-list *ngIf="dlr">
+    <mat-list-item><label>First Name: </label><span>{{dlr.FirstName}}</span></mat-list-item>
+    <mat-list-item><label>Last Name: </label><span>{{dlr.LastName}}</span></mat-list-item>
+    <mat-list-item><label>Gender: </label><span>{{dlr.Gender}}</span></mat-list-item>
+    <mat-list-item><label>Date of Birth: </label><span>{{dlr.DOB}}</span></mat-list-item>
+    <mat-list-item><label>Licence Type: </label><span>{{dlr.TypeOfLicence}}</span></mat-list-item>
+    <mat-list-item><label>Address: </label><span>{{dlr.Address}}</span></mat-list-item>
+    <mat-list-item><label>Medical Conditions: </label><span>{{dlr.MedicalConditions}}</span></mat-list-item>
+    <mat-list-item><label>Lengh of Lincence: </label><span>{{dlr.LengthOfLicence}}</span></mat-list-item>
+    <mat-list-item><label>Driving Offences: </label><span>{{dlr.DrivingOffences}}</span></mat-list-item> 
+  </mat-list>
 
   <button mat-raised-button color="accent" class="btn btn-success" (click)="onBackClick()">Back to home</button> &nbsp;
 
