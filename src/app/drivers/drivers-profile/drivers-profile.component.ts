@@ -43,6 +43,8 @@ export class DriversProfileComponent implements OnInit {
 
   onSubmit() {
     // uncomment once implemeneted/fixed
+    console.log("calling submit");
+
     const newDriversLicenceRego = this.prepareDriversLicenceRego();
     this.store.dispatch(new DriversActions.SubmitAction(newDriversLicenceRego));
   }
