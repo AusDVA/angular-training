@@ -2,12 +2,14 @@
 <h1>Drivers Licence Registrations</h1>
 
 <mat-grid-list cols="6">
-  <mat-grid-tile>
-      <ngat-card name="Fabio, Farina" submittedTime="2017-12-01" id="1"></ngat-card>
-  </mat-grid-tile>
-  <mat-grid-tile>
-      <ngat-card name="Fabio, Farina" submittedTime="2017-12-02" id="2"></ngat-card>
+  <mat-grid-tile *ngFor="let driver of drivers; index as i; first as isFirst">
+      <ngat-card name="{{driver.firstName}}, {{driver.lastName}}" dateOfBirth="{{driver.dateOfBirth}}" id="{{driver.id}}"></ngat-card>
   </mat-grid-tile>
 </mat-grid-list>
 
 <h1>Boating Licence Registrations</h1>
+
+<p>
+    <strong>DEBUG DATA</strong>
+  </p>
+  <p>{{ drivers | json }}</p>

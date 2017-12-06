@@ -18,24 +18,24 @@ export class DriversEffects {
   ) {}
 
   // commented out until dashboard is created
-  //   @Effect()
-  //   loadDriverViewData$ = this.actions$
-  //     .ofType<DriversActions.LoadDriverViewDataAction>(DriversActions.LOAD_DRIVER_VIEW_DATA)
-  //     .pipe(
-  //       switchMap(action => {
-  //         return this.driversService.getDriverRegoInfo(action.payload).pipe(
-  //           map(driver => {
-  //             return new DriversActions.LoadDriverViewDataAction(driver);
-  //           }),
-  //           catchError((error: HttpErrorResponse) => {
-  //               console.error('Fail: LoadDriverViewDataAction');
-  //               const message =
-  //                   error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-  //               return of(new DriversActions.SubmitErrorAction(message));
-  //           })
-  //         );
-  //       })
-  //     );
+  @Effect()
+  loadDriverViewData$ = this.actions$
+    .ofType<DriversActions.LoadDriverViewDataAction>(DriversActions.LOAD_DRIVER_VIEW_DATA)
+    .pipe(
+      switchMap(action => {
+        return this.driversService.getDriverRegoInfo(action.payload.ID).pipe(
+          map(driver => {
+            return new DriversActions.LoadDriverViewDataAction(driver);
+          }),
+          catchError((error: HttpErrorResponse) => {
+              console.error('Fail: LoadDriverViewDataAction');
+              const message =
+                  error.status === 404 ? 'Drivers Licence not found' : error.statusText;
+              return of(new DriversActions.SubmitErrorAction(message));
+          })
+        );
+      })
+    );
 
   @Effect()
   submitDriver$ = this.actions$
