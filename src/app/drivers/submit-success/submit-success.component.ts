@@ -4,6 +4,7 @@ import { State } from '../../state';
 import { Router } from '@angular/router';
 import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import * as DriversSelectors from '../+state/drivers.selectors';
+import { LoadDriverViewDataAction } from '../+state/drivers.actions';
 
 @Component({
   selector: 'ngat-submit-success',
@@ -27,5 +28,19 @@ export class SubmitSuccessComponent implements OnInit {
 
   onBackClick() {
     this.router.navigate(['/home']);
+  //  const newd: DriversLicenceRegistration = {
+  //   FirstName: 'bob',
+  //   LastName: 'smith',
+  //   Gender: null,
+  //   DOB: new Date(),
+  //   TypeOfLicence: 'yes',
+  //   Address: 'here',
+  //   MedicalConditions: false,
+  //   LengthOfLicence: '4',
+  //   DrivingOffences: true
+  // };
+
+
+  //  this.store.dispatch(new LoadDriverViewDataAction(newd));
   }
 }

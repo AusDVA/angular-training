@@ -2,7 +2,7 @@ import { DriversLicenceRegistration } from '../models/driversLicenceRegistration
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as DriversActions from '../+state/drivers.actions';
 import * as DriversLicenceRegoSelectors from '../+state/drivers.selectors';

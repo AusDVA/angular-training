@@ -34,12 +34,13 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Gender" formControlName="gender">
-        <!--<mat-option>--</mat-option>
-        <mat-option *ngFor="let gender of genders" [value]="gender">
-          {{gender.name}}
-        </mat-option>-->
-
+        <!--<input matInput placeholder="Gender" formControlName="gender">-->
+        <mat-select placeholder="Gender" formControlName="gender">
+        <mat-option>Please Select a Gender</mat-option>
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="X">X</mat-option>
+      </mat-select>
       </mat-form-field>
 
       <mat-form-field>
@@ -63,7 +64,15 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Licence Type" formControlName="type">
+        <!--<input matInput placeholder="Licence Type" formControlName="type">-->
+
+
+        <mat-select placeholder="Licence Type" formControlName="type">
+            <mat-option>Please Select a Licence Type</mat-option>
+            <mat-option value="Class A">Class A</mat-option>
+            <mat-option value="Class B">Class B</mat-option>
+            <mat-option value="Class C">Class C</mat-option>
+          </mat-select>
 
         <mat-error *ngIf="driverLicenceForm.get('type').hasError('required')">
             Licence Type
