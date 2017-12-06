@@ -1,7 +1,6 @@
 import { BoatLicenseModule } from './boat-license/boat-license.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { BoatLicenseModule } from './boat-license/boat-license.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
