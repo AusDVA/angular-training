@@ -47,7 +47,12 @@
         
         <!--<input matInput placeholder="Date of Birth" formControlName="DOB">-->
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+        <input matInput type="date" id="DOB" name="DOB" ng-model="driversLicenceRegistration.DOB"
+=======
         <input matInput type="date" formControlName="DOB"  ng-model="driversLicenceRegistration.DOB"
+>>>>>>> fbd2f16e556f061e80248b4ccd981d1acbcc269f
         placeholder="Your Date of Birth in dd-MM-yyyy" min="01-01-1900" max="01-01-2001" required />
  
 
@@ -57,6 +62,11 @@
           
         <mat-error ng-show="myForm.input.$error.date">
             <span>Not a valid date!</span>
+=======
+        <mat-error *ngIf="driverLicenceForm.get('DOB').hasError('required')">
+          Date of Birth is
+          <strong>required</strong>
+>>>>>>> Stashed changes
         </mat-error>
 
       </mat-form-field>
@@ -66,7 +76,7 @@
         <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
 
         <mat-error *ngIf="driverLicenceForm.get('TypeOfLicence').hasError('required')">
-          Last Name is
+          Licence Type is
           <strong>required</strong>
         </mat-error>
 
@@ -77,7 +87,7 @@
         <input matInput placeholder="Address" formControlName="Address">
 
         <mat-error *ngIf="driverLicenceForm.get('Address').hasError('required')">
-          Last Name is
+          Address is
           <strong>required</strong>
         </mat-error>
 
@@ -96,7 +106,7 @@
         <input matInput placeholder="Lengh of Licence" formControlName="LengthOfLicence">
 
         <mat-error *ngIf="driverLicenceForm.get('LengthOfLicence').hasError('required')">
-          Last Name is
+          Length of licence is
           <strong>required</strong>
         </mat-error>
 
@@ -113,7 +123,7 @@
 
 
         <mat-error *ngIf="driverLicenceForm.get('DrivingOffences').hasError('required')">
-          Last Name is
+         Driving offences is
           <strong>required</strong>
         </mat-error>
       </section>
