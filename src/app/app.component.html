@@ -1,10 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
-
-<ngat-boat-license-application></ngat-boat-license-application>
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/home" routerLinkActive="active" >
+    Home
+  </a>
+  <a mat-button routerLink="/drivers"  routerLinkActive="active">
+    Register a driver's licence
+  </a>
+  <a mat-button routerLink="/boatlicense"  routerLinkActive="active">
+    Register a boat's licence
+  </a>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
