@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { State } from '../state';
 import { LoadDriverViewDataAction } from '../drivers/+state/drivers.actions';
 import * as DriverActions from '../drivers/+state/drivers.actions';
+import * as DriverSelectors from '../drivers/+state/drivers.selectors';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -16,7 +17,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  drivers$: Observable<DriversLicenceRegistration> ;
   drivers: DriversLicenceRegistration;
   imports = [
     CardComponent
@@ -27,13 +27,12 @@ export class HomeComponent implements OnInit {
     this.driversService.getAllDriverRegoInfo().subscribe(drivers => {
       this.drivers = drivers;
     });
+    // this.store.dispatch(new DriverActions.GetAllAction(null));
 
-    this.activatedRoute.params.subscribe(params => {
-      const id = +params['id']; // (+) converts string 'id' to a number
-      if (id) {
-        this.store.dispatch(new DriverActions.LoadDriverViewDataAction(id));
-      }
-    });
+    // this.store.select(DriverSelectors.selectDriversLicenceState).subscribe(drivers => {
+    //   this.drivers = drivers.driversLicenceRegistration;
+    // });
+
   }
 
 }
