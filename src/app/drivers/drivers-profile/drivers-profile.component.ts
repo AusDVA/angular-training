@@ -53,15 +53,15 @@ export class DriversProfileComponent implements OnInit {
     const driverLicenceModel = this.driverLicenceForm.value;
 
     const saveDriversLicence: DriversLicenceRegistration = {
-      FirstName: driverLicenceModel.FirstName,
-      LastName: driverLicenceModel.LastName,
-      Gender: driverLicenceModel.Gender,
-      DOB: driverLicenceModel.DOB,
-      TypeOfLicence: driverLicenceModel.TypeOfLicence,
-      Address: driverLicenceModel.Address,
-      MedicalConditions: driverLicenceModel.MedicalConditions,
-      LengthOfLicence: driverLicenceModel.LengthOfLicence,
-      DrivingOffences: driverLicenceModel.DrivingOffences
+      firstName: driverLicenceModel.FirstName,
+      lastName: driverLicenceModel.LastName,
+      gender: driverLicenceModel.Gender,
+      dateOfBirth: driverLicenceModel.DOB,
+      type: driverLicenceModel.TypeOfLicence,
+      address: driverLicenceModel.Address,
+      medicalConditions: driverLicenceModel.MedicalConditions,
+      lengthOfLicenceYears: driverLicenceModel.LengthOfLicence,
+      drivingOffences: driverLicenceModel.DrivingOffences
     };
     return saveDriversLicence;
   }
