@@ -10,3 +10,4 @@ export interface DriversLicenceRegistration {
     lengthOfLicenceYears: string;
     drivingOffences: boolean;
 }
+
