@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   imports = [
     CardComponent
   ];
-  constructor() { }
+  constructor(private driversService: DriversService) { }
 
   ngOnInit() {
     // getDriverRegos$ = this.driversService.getAllDriverRegoInfo();
