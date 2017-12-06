@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./boat-license-submit.component.scss']
 })
 export class BoatLicenseSubmitComponent implements OnInit {
-  applicationID: number;
+  id: number;
   
 
   constructor(

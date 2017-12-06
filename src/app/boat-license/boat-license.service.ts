@@ -11,9 +11,9 @@ export class BoatLicenseService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getBoatLicense(applicationID: number): Observable<BoatLicenseApplication> {
+  getBoatLicense(id: number): Observable<BoatLicenseApplication> {
     return this.httpClient.get<BoatLicenseApplication>(
-      `${environment.apiUrl}//licences/boating/${applicationID}`
+      `${environment.apiUrl}//licences/boating/${id}`
     ).pipe(catchError(this.errorHandler));
   }
 

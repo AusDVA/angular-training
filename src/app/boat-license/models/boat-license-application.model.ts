@@ -1,5 +1,5 @@
 export interface BoatLicenseApplication {
-    applicationID?: number;
+    id?: number;
     registrationNumber?: number;
     firstName: string;
     lastName: string;
@@ -7,7 +7,7 @@ export interface BoatLicenseApplication {
     gender?: string;
     address: string;
     medicalConditions?: string;
-    typeOfLicense: string;
+    type: string;
     expiry: Date;
     status: string;
 }

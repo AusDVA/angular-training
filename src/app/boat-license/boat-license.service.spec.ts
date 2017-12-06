@@ -37,7 +37,7 @@ describe('BoatLicenseService', () => {
 
   it('submitBoatLicense: should return a boat license if application request succeeds', done => {
     const fakeBoatLicense = {} as any;
-    const expectedResponse = { applicationID: 1 };
+    const expectedResponse = { id: 1 };
 
     boatLicenseService.submitBoatLicense(fakeBoatLicense).subscribe(boatLicense => {
       expect(boatLicense).toBe(expectedResponse);

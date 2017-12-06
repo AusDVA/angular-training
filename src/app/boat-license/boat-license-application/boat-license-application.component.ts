@@ -16,7 +16,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class BoatLicenseApplicationComponent implements OnInit {
   boatApplicationForm: FormGroup;
-  applicationID: number;
+  id: number;
   error$: Observable<string>;  
 
   genders = [
@@ -88,16 +88,16 @@ export class BoatLicenseApplicationComponent implements OnInit {
     const boatLicenseApplicationModel = this.boatApplicationForm.value;
 
     const saveBoatLicenseApplication: BoatLicenseApplication = {
-      applicationID: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.applicationID,      
+      id: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.id,      
       firstName: boatLicenseApplicationModel.firstname,
       lastName: boatLicenseApplicationModel.lastName,
       dateOfBirth: boatLicenseApplicationModel.ateOfBirth,
       gender: boatLicenseApplicationModel.gender,
       address: boatLicenseApplicationModel.address,
       medicalConditions: boatLicenseApplicationModel.medicalConditions,
-      typeOfLicense: boatLicenseApplicationModel.typeOfLicense,
+      type: boatLicenseApplicationModel.typeOfLicense,
       expiry: boatLicenseApplicationModel.expiry,
-      status: "Submitted"
+      status: 'Submitted'
 
     };
     return saveBoatLicenseApplication;
@@ -106,6 +106,6 @@ export class BoatLicenseApplicationComponent implements OnInit {
   onSubmit() {
     const boatLicenseApplication = this.prepareApplication();
     this.store.dispatch(new BoatLicenseActions.SaveAction(boatLicenseApplication));
-    this.router.navigate(['boatlicense/boatLicenseSubmit', boatLicenseApplication.applicationID]);
+    this.router.navigate(['boatlicense/boatLicenseSubmit', boatLicenseApplication.id]);
   }
 }
