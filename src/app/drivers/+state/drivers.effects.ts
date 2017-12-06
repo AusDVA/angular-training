@@ -12,29 +12,29 @@ export class DriversEffects {
 
   constructor(private actions$: Actions, private driversService: DriversService) {}
 
-  @Effect()
-  loadDriverViewData$ = this.actions$
-    .ofType<DriversActions.LoadDriverViewData>(DriversActions.LOAD_DRIVER_VIEW_DATA)
-    .pipe(
-      switchMap(action => {
-        return this.driversService.getDriverRegoInfo(action.payload).pipe(
-          map(driver => {
-            // return new DriversActions.LoadDriverViewDataAction(driver);
-            return 'FIXME';
-          }),
-          catchError((error: HttpErrorResponse) => {
-              console.error('Fail: LoadDriverViewDataAction');
-              const message =
-                  error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-              return of(new DriversActions.LoadError(message));
-          })
-        );
-      })
-    );
+  // commented out until dashboard is created
+//   @Effect()
+//   loadDriverViewData$ = this.actions$
+//     .ofType<DriversActions.LoadDriverViewDataAction>(DriversActions.LOAD_DRIVER_VIEW_DATA)
+//     .pipe(
+//       switchMap(action => {
+//         return this.driversService.getDriverRegoInfo(action.payload).pipe(
+//           map(driver => {
+//             return new DriversActions.LoadDriverViewDataAction(driver);
+//           }),
+//           catchError((error: HttpErrorResponse) => {
+//               console.error('Fail: LoadDriverViewDataAction');
+//               const message =
+//                   error.status === 404 ? 'Drivers Licence not found' : error.statusText;
+//               return of(new DriversActions.SubmitErrorAction(message));
+//           })
+//         );
+//       })
+//     );
 
   @Effect()
   submitDriver$ = this.actions$
-    .ofType<DriversActions.SubmitDriver>(DriversActions.SUBMIT_DRIVER)
+    .ofType<DriversActions.SubmitAction>(DriversActions.SUBMIT)
     .pipe(
       switchMap(action => {
           // delete once created
@@ -42,18 +42,16 @@ export class DriversEffects {
           .pipe(
             map(driver => {
               if (driver) {
-                // return new DriversActions.LoadDriverViewDataAction(driver);
-                return 'FIXME';
+                return new DriversActions.LoadDriverViewDataAction(driver);
               } else {
-                // return new DriversActions.SubmitDriverSuccess(null);
-                return 'FIXME';
+                return new DriversActions.SubmitSuccessAction(null);
               }
             }),
             catchError((error: HttpErrorResponse) => {
                 console.error('Fail: LoadDriverViewData');
                 const message =
-                    error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-                return of(new DriversActions.SubmitError(message));
+                    error.status === 404 ? 'Drivers Licence not saved' : error.statusText;
+                return of(new DriversActions.SubmitErrorAction(message));
             })
           );
       })

@@ -8,6 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';;
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
+
 
 const MODULES = [MatCardModule,
   MatFormFieldModule,
@@ -15,7 +21,14 @@ const MODULES = [MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
   MatCheckboxModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatToolbarModule,
+  MatGridListModule,
+  MatListModule
+
 ];
 
 @NgModule({
