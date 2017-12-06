@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
+import { DriversLicenceRegistration } from '../models/drivers';
 
 export const SUBMIT = '[Drivers] Sumbit';
 export const SUBMIT_ERROR = '[Drivers] SumbitError';
