@@ -26,7 +26,7 @@ export class DriversProfileComponent implements OnInit {
     this.createForm();
   }
 
-  createForm() {
+  createForm() {  
     this.driverLicenceForm = this.formBuilder.group({
       FirstName: [null, Validators.required],
       LastName: [null, Validators.required],
