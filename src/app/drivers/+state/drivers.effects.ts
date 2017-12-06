@@ -42,11 +42,10 @@ export class DriversEffects {
     .ofType<DriversActions.SubmitAction>(DriversActions.SUBMIT)
     .pipe(
       switchMap(action => {
-        // delete once created
         return this.driversService.saveDriver(action.payload).pipe(
           map(driver => {
             if (driver) {
-              return new DriversActions.SubmitSuccessAction(driver);
+              return new DriversActions.LoadDriverViewDataAction(driver);
             }
             return new DriversActions.SubmitErrorAction(
               'Blank response received'
@@ -65,11 +64,12 @@ export class DriversEffects {
     );
 
   @Effect()
-  submitSuccess$ = this.actions$
-    .ofType<DriversActions.SubmitSuccessAction>(DriversActions.SUBMIT_SUCCESS)
+  loadDriverViewDataActionOnSuccessfulRego$ = this.actions$
+    .ofType<DriversActions.LoadDriverViewDataAction>(DriversActions.LOAD_DRIVER_VIEW_DATA)
     .pipe(
       map(driver => {
         this.router.navigate(['driversSuccess']);
+        return new DriversActions.SubmitSuccessAction(null);
       })
     );
 }
