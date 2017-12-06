@@ -2,15 +2,15 @@
   <h2>Submission successful!</h2>
 
   <mat-list *ngIf="dlr">
-    <mat-list-item><label>First Name: </label><span>{{dlr.FirstName}}</span></mat-list-item>
-    <mat-list-item><label>Last Name: </label><span>{{dlr.LastName}}</span></mat-list-item>
-    <mat-list-item><label>Gender: </label><span>{{dlr.Gender}}</span></mat-list-item>
-    <mat-list-item><label>Date of Birth: </label><span>{{dlr.DOB}}</span></mat-list-item>
-    <mat-list-item><label>Licence Type: </label><span>{{dlr.TypeOfLicence}}</span></mat-list-item>
-    <mat-list-item><label>Address: </label><span>{{dlr.Address}}</span></mat-list-item>
-    <mat-list-item><label>Medical Conditions: </label><span>{{dlr.MedicalConditions}}</span></mat-list-item>
-    <mat-list-item><label>Lengh of Lincence: </label><span>{{dlr.LengthOfLicence}}</span></mat-list-item>
-    <mat-list-item><label>Driving Offences: </label><span>{{dlr.DrivingOffences}}</span></mat-list-item> 
+    <mat-list-item><label>First Name: </label><span>{{dlr.firstName}}</span></mat-list-item>
+    <mat-list-item><label>Last Name: </label><span>{{dlr.lastName}}</span></mat-list-item>
+    <mat-list-item><label>Gender: </label><span>{{dlr.gender}}</span></mat-list-item>
+    <mat-list-item><label>Date of Birth: </label><span>{{dlr.dateOfBirth}}</span></mat-list-item>
+    <mat-list-item><label>Licence Type: </label><span>{{dlr.type}}</span></mat-list-item>
+    <mat-list-item><label>Address: </label><span>{{dlr.address}}</span></mat-list-item>
+    <mat-list-item><label>Medical Conditions: </label><span>{{dlr.medicalConditions}}</span></mat-list-item>
+    <mat-list-item><label>Lengh of Lincence: </label><span>{{dlr.lengthOfLicenceYears}}</span></mat-list-item>
+    <mat-list-item><label>Driving Offences: </label><span>{{dlr.drivingOffences}}</span></mat-list-item> 
   </mat-list>
 
   <button mat-raised-button color="accent" class="btn btn-success" (click)="onBackClick()">Back to home</button> &nbsp;
