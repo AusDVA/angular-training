@@ -22,7 +22,7 @@ export function driversReducer(state = InitialState, action: DriversActions.Acti
             ...{
                 submitting: true,
                 error: null
-            }
+            },
         };
 
         case DriversActions.SUBMIT_ERROR:

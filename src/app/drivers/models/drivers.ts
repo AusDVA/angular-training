@@ -3,7 +3,7 @@ export interface DriversLicenceRegistration {
     FirstName: string;
     LastName: string;
     Gender: string;
-    DOB: string;
+    DOB: Date;
     TypeOfLicence: string;
     Address: string;
     MedicalConditions: boolean;
