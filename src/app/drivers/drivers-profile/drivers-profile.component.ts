@@ -29,15 +29,15 @@ export class DriversProfileComponent implements OnInit {
 
   createForm() {  
     this.driverLicenceForm = this.formBuilder.group({
-      FirstName: [null, Validators.required],
-      LastName: [null, Validators.required],
-      Gender: [null],
-      DOB: [null, Validators.required],
-      TypeOfLicence: [null, Validators.required],
-      Address: [null, Validators.required],
-      MedicalConditions: false,
-      LengthOfLicence: [null, Validators.required],
-      DrivingOffences: false
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
+      gender: [null],
+      dateOfBirth: [null, Validators.required],
+      type: [null, Validators.required],
+      address: [null, Validators.required],
+      medicalConditions: false,
+      lengthOfLicenceYears: [null, Validators.required],
+      drivingOffences: false
     });
   }
 
@@ -53,15 +53,15 @@ export class DriversProfileComponent implements OnInit {
     const driverLicenceModel = this.driverLicenceForm.value;
 
     const saveDriversLicence: DriversLicenceRegistration = {
-      firstName: driverLicenceModel.FirstName,
-      lastName: driverLicenceModel.LastName,
-      gender: driverLicenceModel.Gender,
-      dateOfBirth: driverLicenceModel.DOB,
-      type: driverLicenceModel.TypeOfLicence,
-      address: driverLicenceModel.Address,
-      medicalConditions: driverLicenceModel.MedicalConditions,
-      lengthOfLicenceYears: driverLicenceModel.LengthOfLicence,
-      drivingOffences: driverLicenceModel.DrivingOffences
+      firstName: driverLicenceModel.firstName,
+      lastName: driverLicenceModel.lastName,
+      gender: driverLicenceModel.gender,
+      dateOfBirth: driverLicenceModel.dateOfBirth,
+      type: driverLicenceModel.type,
+      address: driverLicenceModel.address,
+      medicalConditions: driverLicenceModel.medicalConditions,
+      lengthOfLicenceYears: driverLicenceModel.lengthOfLicenceYears,
+      drivingOffences: driverLicenceModel.drivingOffences
     };
     return saveDriversLicence;
   }

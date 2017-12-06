@@ -12,9 +12,9 @@
         </section>
 
       <mat-form-field>
-        <input matInput placeholder="First Name" formControlName="FirstName">
+        <input matInput placeholder="First Name" formControlName="firstName">
 
-        <mat-error *ngIf="driverLicenceForm.get('FirstName').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('firstName').hasError('required')">
           First Name is
           <strong>required</strong>
         </mat-error>
@@ -23,9 +23,9 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Last Name" formControlName="LastName">
+        <input matInput placeholder="Last Name" formControlName="lastName">
 
-        <mat-error *ngIf="driverLicenceForm.get('LastName').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('lastName').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -34,7 +34,7 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Gender" formControlName="Gender">
+        <input matInput placeholder="Gender" formControlName="gender">
         <!--<mat-option>--</mat-option>
         <mat-option *ngFor="let gender of genders" [value]="gender">
           {{gender.name}}
@@ -47,7 +47,7 @@
         
         <!--<input matInput placeholder="Date of Birth" formControlName="DOB">-->
 
-        <input matInput type="date" formControlName="DOB"  ng-model="driversLicenceRegistration.DOB"
+        <input matInput type="date" formControlName="dateOfBirth"  ng-model="driversLicenceRegistration.dateOfBirth"
         placeholder="Your Date of Birth in dd-MM-yyyy" min="01-01-1900" max="01-01-2001" required />
  
 
@@ -63,10 +63,10 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
+        <input matInput placeholder="Licence Type" formControlName="type">
 
-        <mat-error *ngIf="driverLicenceForm.get('TypeOfLicence').hasError('required')">
-          Last Name is
+        <mat-error *ngIf="driverLicenceForm.get('type').hasError('required')">
+            Licence Type
           <strong>required</strong>
         </mat-error>
 
@@ -74,10 +74,10 @@
 
       <mat-form-field>
 
-        <input matInput placeholder="Address" formControlName="Address">
+        <input matInput placeholder="Address" formControlName="address">
 
-        <mat-error *ngIf="driverLicenceForm.get('Address').hasError('required')">
-          Last Name is
+        <mat-error *ngIf="driverLicenceForm.get('address').hasError('required')">
+          Address is
           <strong>required</strong>
         </mat-error>
 
@@ -87,15 +87,15 @@
           <section class="section">
               Do you have any serious medical conditions?
         
-                <mat-checkbox formControlName="MedicalConditions" ng-model="driversLicenceRegistration.MedicalConditions">Yes</mat-checkbox>
+                <mat-checkbox formControlName="medicalConditions" ng-model="driversLicenceRegistration.medicalConditions">Yes</mat-checkbox>
 
               </section>
 
       <mat-form-field>
 
-        <input matInput placeholder="Lengh of Licence" formControlName="LengthOfLicence">
+        <input matInput placeholder="Lengh of Licence" formControlName="lengthOfLicenceYears">
 
-        <mat-error *ngIf="driverLicenceForm.get('LengthOfLicence').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('lengthOfLicenceYears').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -105,14 +105,14 @@
       <section class="section">
       Have you ever committed any driving offences?
 
-        <!--<input matInput placeholder="Have you ever committed any driving offences" formControlName="DrivingOffences">-->
+        <!--<input matInput placeholder="Have you ever committed any driving offences" formControlName="drivingOffences">-->
 
         
-        <mat-checkbox formControlName="DrivingOffences" ng-model="driversLicenceRegistration.DrivingOffences">Yes</mat-checkbox>
+        <mat-checkbox formControlName="drivingOffences" ng-model="driversLicenceRegistration.drivingOffences">Yes</mat-checkbox>
           
 
 
-        <mat-error *ngIf="driverLicenceForm.get('DrivingOffences').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('drivingOffences').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
