@@ -71,20 +71,17 @@
 
       </mat-form-field>
 
-      <mat-form-field>
 
-        <input matInput placeholder="Medical Conditions" formControlName="MedicalConditions">
+          <section class="section">
+              Do you have any serious medical conditions?
+        
+                <mat-checkbox formControlName="MedicalConditions" ng-model="drivers.MedicalConditions">Yes</mat-checkbox>
 
-        <mat-error *ngIf="driverLicenceForm.get('MedicalConditions').hasError('required')">
-          Last Name is
-          <strong>required</strong>
-        </mat-error>
-
-      </mat-form-field>
+              </section>
 
       <mat-form-field>
 
-        <input matInput placeholder="Lengh of Lincence" formControlName="LengthOfLicence">
+        <input matInput placeholder="Lengh of Licence" formControlName="LengthOfLicence">
 
         <mat-error *ngIf="driverLicenceForm.get('LengthOfLicence').hasError('required')">
           Last Name is
@@ -92,18 +89,22 @@
         </mat-error>
 
       </mat-form-field>
+      
+      <section class="section">
+      Have you ever committed any driving offences?
 
-      <mat-form-field>
+        <!--<input matInput placeholder="Have you ever committed any driving offences" formControlName="DrivingOffences">-->
 
-        <input matInput placeholder="Driving Offences" formControlName="DrivingOffences">
+        
+        <mat-checkbox formControlName="DrivingOffences" ng-model="drivers.DrivingOffences">Yes</mat-checkbox>
+          
+
 
         <mat-error *ngIf="driverLicenceForm.get('DrivingOffences').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
-
-      </mat-form-field>
-
+      </section>
       <div *ngIf="driverLicenceForm.value.createDriverLicenceRego; else saveForm" style="margin-bottom: 1em">
 
         <button mat-raised-button color="accent" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving" class="btn btn-success">Create</button> &nbsp;

@@ -35,9 +35,9 @@ export class DriversProfileComponent implements OnInit {
       DOB: [null, Validators.required],
       TypeOfLicence: [null, Validators.required],
       Address: [null, Validators.required],
-      MedicalConditions: [null, Validators.required],
+      MedicalConditions: false,
       LengthOfLicence: [null, Validators.required],
-      DrivingOffences: [null, Validators.required]
+      DrivingOffences: false
     });
   }
 
