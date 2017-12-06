@@ -1,1 +1,89 @@
-<p>Boat License</p>
+<mat-card *ngIf="!loading; else loadingBlock">
+  <h2>Boating License Form</h2>
+
+  <div class="container">
+
+    <form>
+    <mat-form-field>
+      <input matInput placeholder="First Name" formControlName="firstName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="dateOfBirth" formControlName="dateOfBirth">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="gender" formControlName="gender">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="address" formControlName="address">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="medicalConditions" formControlName="medicalConditions">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="typeOfLicense" formControlName="typeOfLicense">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="expiry" formControlName="expiry">
+    </mat-form-field>
+
+    <!-- <div *ngIf="userForm.value.createUser; else saveForm"
+               style="margin-bottom: 1em">
+
+              <button mat-raised-button
+                      color="accent"
+                      type="submit"
+                      [disabled]="userForm.invalid || userForm.pristine || saving"
+                      class="btn btn-success">Create</button> &nbsp;
+
+              <button mat-raised-button
+                      color="warn"
+                      type="reset"
+                      (click)="revert()"
+                      [disabled]="userForm.invalid || userForm.pristine || saving"
+                      class="btn btn-danger">Clear</button>
+
+          </div> -->
+
+    <!-- <ng-template #saveForm>
+              <div style="margin-bottom: 1em">
+
+                  <button mat-raised-button
+                          color="primary"
+                          type="submit"
+                          [disabled]="userForm.invalid || userForm.pristine || saving"
+                          class="btn btn-success">Save</button> &nbsp;
+                  <button mat-raised-button
+                          color="warn"
+                          type="reset"
+                          (click)="onReset()"
+                          [disabled]="userForm.invalid || userForm.pristine || saving"
+                          class="btn btn-danger">Revert</button>
+
+              </div>
+          </ng-template> -->
+
+    </form>
+
+  </div>
+
+  <!-- <p><strong>DEBUG DATA</strong></p>
+  <p>{{ userForm.value | json }}</p>
+  <p>{{ userForm.status | json }}</p> -->
+
+</mat-card>
+
+<!-- <ng-template #loadingBlock>
+  <div class="container">
+      <mat-spinner></mat-spinner>
+  </div>
+</ng-template> -->
