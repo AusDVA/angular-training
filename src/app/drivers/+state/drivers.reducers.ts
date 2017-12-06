@@ -1,4 +1,4 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import * as DriversActions from './drivers.actions';
 export const DRIVERS_STATE_NAME = 'drivers';
 
@@ -17,6 +17,7 @@ export const InitialState: DriversLicenceRegistrationState = {
 export function driversReducer(state = InitialState, action: DriversActions.ActionTypes) {
     switch (action.type) {
         case DriversActions.SUBMIT:
+        console.log(`calling action action.type`);
         return {
             ...state,
             ...{
