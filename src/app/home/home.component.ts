@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardComponent } from './card/card.component';
 
 @Component({
   selector: 'ngat-home',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  imports = [
+    CardComponent
+  ];
   constructor() { }
 
   ngOnInit() {
