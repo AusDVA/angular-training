@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { DriversEffects } from './+state/drivers.effects';
 import { StoreModule } from '@ngrx/store';
 import { driversReducer } from './+state/drivers.reducers';
 import { NgModule } from '@angular/core';
@@ -13,8 +15,9 @@ import { SubmitSuccessComponent } from './submit-success/submit-success.componen
   imports: [
     CommonModule,
     DriversRoutingModule,
-  ReactiveFormsModule,
-  MaterialModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    EffectsModule.forFeature([DriversEffects]),
     StoreModule.forFeature('drivers', {drivers: driversReducer})
 
   ],
