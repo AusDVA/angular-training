@@ -9,6 +9,12 @@ export class BoatLicenseService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getBoatLicense(applicationID: number): Observable<BoatLicenseApplication> {
+    return this.httpClient.get<BoatLicenseApplication>(
+      `${environment.apiUrl}/profiles/${applicationID}`
+    );
+  }
+
   submitBoatLicense(boatLicense: BoatLicenseApplication): Observable<BoatLicenseApplication | any> {
       return this.httpClient.post<BoatLicenseApplication>(
         `${environment.apiUrl}/`, boatLicense, { headers: new HttpHeaders().set('content-type', 'application/json') }
