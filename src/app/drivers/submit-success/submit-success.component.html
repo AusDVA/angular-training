@@ -1,0 +1,18 @@
+<mat-card>
+  <h2>Submission successful!</h2>
+
+  <ul *ngIf="dlr">
+    <li>First Name: {{dlr.FirstName}}</li>
+    <li>Last Name: {{dlr.LastName}}</li>
+    <li>Gender: {{dlr.Gender}}</li>
+    <li>Date of Birth: {{dlr.DOB}}</li>
+    <li>Licence Type: {{dlr.TypeOfLicence}}</li>
+    <li>Address: {{dlr.Address}}</li>
+    <li>Medical Conditions: {{dlr.MedicalConditions}}</li>
+    <li>Lengh of Lincence: {{dlr.LengthOfLicence}}</li>
+    <li>Driving Offences: {{dlr.DrivingOffences}}</li> 
+  </ul>
+
+  <button mat-raised-button color="accent" class="btn btn-success" (click)="onBackClick()">Back to home</button> &nbsp;
+
+</mat-card>

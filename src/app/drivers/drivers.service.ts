@@ -12,7 +12,7 @@ export class DriversService {
   constructor(private httpClient: HttpClient) { }
 
   getDriverRegoInfo(userId: number): Observable<DriversLicenceRegistration> {
-    return this.httpClient.get<DriversLicenceRegistration>(`${environment.apiUrl}/profiles/${userId}`);
+    return this.httpClient.get<DriversLicenceRegistration>(`${environment.apiUrl}/licences/driving/${userId}`);
   }
 
   private errorHandler(error: Error): Observable<DriversLicenceRegistration> {
@@ -34,4 +34,8 @@ export class DriversService {
           .pipe(catchError(this.errorHandler));
         }
       }
+
+  getAllDriverRegoInfo(): Observable<DriversLicenceRegistration> {
+    return this.httpClient.get<DriversLicenceRegistration>(`${environment.apiUrl}/licences/driving/`);
+  }
 }
