@@ -3,12 +3,12 @@
 
   <div class="container">
 
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <form [formGroup]="driverLicenceForm" (ngSubmit)="onSubmit()" novalidate>
 
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName="FirstName">
 
-        <mat-error *ngIf="userForm.get('FirstName').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('FirstName').hasError('required')">
           First Name is
           <strong>required</strong>
         </mat-error>
@@ -19,7 +19,7 @@
 
         <input matInput placeholder="Last Name" formControlName="LastName">
 
-        <mat-error *ngIf="userForm.get('LastName').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('LastName').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -36,7 +36,7 @@
 
         <input matInput placeholder="Date of Birth" formControlName="DOB">
 
-        <mat-error *ngIf="userForm.get('DOB').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('DOB').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -47,7 +47,7 @@
 
         <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
 
-        <mat-error *ngIf="userForm.get('TypeOfLicence').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('TypeOfLicence').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -58,7 +58,7 @@
 
         <input matInput placeholder="Address" formControlName="Address">
 
-        <mat-error *ngIf="userForm.get('Address').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('Address').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -69,7 +69,7 @@
 
         <input matInput placeholder="Medical Conditions" formControlName="MedicalConditions">
 
-        <mat-error *ngIf="userForm.get('MedicalConditions').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('MedicalConditions').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -80,7 +80,7 @@
 
         <input matInput placeholder="Lengh of Lincence" formControlName="LengthOfLicence">
 
-        <mat-error *ngIf="userForm.get('LengthOfLicence').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('LengthOfLicence').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
@@ -91,18 +91,18 @@
 
         <input matInput placeholder="Driving Offences" formControlName="DrivingOffences">
 
-        <mat-error *ngIf="userForm.get('DrivingOffences').hasError('required')">
+        <mat-error *ngIf="driverLicenceForm.get('DrivingOffences').hasError('required')">
           Last Name is
           <strong>required</strong>
         </mat-error>
 
       </mat-form-field>
 
-      <div *ngIf="userForm.value.createUser; else saveForm" style="margin-bottom: 1em">
+      <div *ngIf="driverLicenceForm.value.createDriverLicenceRego; else saveForm" style="margin-bottom: 1em">
 
-        <button mat-raised-button color="accent" type="submit" [disabled]="userForm.invalid || userForm.pristine || saving" class="btn btn-success">Create</button> &nbsp;
+        <button mat-raised-button color="accent" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving" class="btn btn-success">Create</button> &nbsp;
 
-        <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="userForm.invalid || userForm.pristine || saving"
+        <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving"
           class="btn btn-danger">Clear</button>
 
       </div>
@@ -110,8 +110,8 @@
       <ng-template #saveForm>
         <div style="margin-bottom: 1em">
 
-          <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid || userForm.pristine || saving" class="btn btn-success">Save</button> &nbsp;
-          <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="userForm.invalid || userForm.pristine || saving"
+          <button mat-raised-button color="primary" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving" class="btn btn-success">Save</button> &nbsp;
+          <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving"
             class="btn btn-danger">Revert</button>
 
         </div>
@@ -124,8 +124,8 @@
   <p>
     <strong>DEBUG DATA</strong>
   </p>
-  <p>{{ userForm.value | json }}</p>
-  <p>{{ userForm.status | json }}</p>
+  <p>{{ driverLicenceForm.value | json }}</p>
+  <p>{{ driverLicenceForm.status | json }}</p>
 
 </mat-card>
 
