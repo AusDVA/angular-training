@@ -11,6 +11,7 @@ import { BoatLicenseService } from './boat-license.service';
     CommonModule,
     BoatLicenseRoutingModule
   ],
+  exports: [BoatLicenseApplicationComponent],
   declarations: [BoatLicenseApplicationComponent, BoatLicenseSubmitComponent],
   providers: [BoatLicenseService]
 })

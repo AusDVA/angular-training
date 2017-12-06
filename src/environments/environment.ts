@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://zware-ngnewapi.azurewebsites.net/api/licences/boating'  
+  apiUrl: 'https://zware-ngnewapi.azurewebsites.net/api/licences/boating'
 };
