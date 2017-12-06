@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { DriversRoutingModule } from './drivers-routing.module';
 import { DriversProfileComponent } from './drivers-profile/drivers-profile.component';
+import { DriversService } from './drivers.service';
 @NgModule({
   imports: [
     CommonModule,
