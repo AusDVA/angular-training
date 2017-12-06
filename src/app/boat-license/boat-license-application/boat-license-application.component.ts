@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Store} from '@ngrx/store';
+import { State } from '../models/state';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BoatLicenseApplication } from '../models/boat-license-application.model';
+import * as BoatLicenseActions from '../+state/boat-license.actions';
+import * as BoatLicenseSelectors from '../+state/boat-license.selectors';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'ngat-boat-license-application',
@@ -8,6 +16,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class BoatLicenseApplicationComponent implements OnInit {
   boatApplicationForm: FormGroup;
+  applicationID: number;
+  error$: Observable<string>;  
 
   genders = [
     {value: 'male', viewValue: 'Male'},
@@ -30,12 +40,41 @@ export class BoatLicenseApplicationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private store: Store<State>,
+    private router: Router,
+    private activatedRoute: ActivatedRoute 
     
   ) { }
 
   ngOnInit() {
     this.createForm();
-  }
+    this.store.select(BoatLicenseSelectors.selectBoatLicenseState)
+    .subscribe((boatLicenseApplication: any) => {
+      if (boatLicenseApplication) {
+        if (boatLicenseApplication.applicationID && boatLicenseApplication.applicationID !== this.applicationID) {
+          this.router.navigate(['boatlicense/boatLicenseForm', boatLicenseApplication.applicationID]);
+        }
+        boatLicenseApplication.createUser = false;
+        this.boatApplicationForm.patchValue(boatLicenseApplication);
+        this.applicationID = boatLicenseApplication.applicationID;
+      }
+    });
+
+  // this.store.select(BoatLicenseSelectors.)
+  //  .subscribe(loading => this.loading = loading);
+
+  // this.store.select(UserSelectors.selectSaving)
+  //  .subscribe(saving => this.saving = saving);
+
+  // this.error$ = this.store.select(BoatLicenseSelectors.);
+
+  this.activatedRoute.params.subscribe(params => {
+    const id = +params['id']; // (+) converts string 'id' to a number
+    if (id) {
+      this.store.dispatch(new BoatLicenseActions.GetAction(id));
+    }
+  });
+}
 
   createForm() {
     this.boatApplicationForm = this.formBuilder.group({
@@ -50,5 +89,29 @@ export class BoatLicenseApplicationComponent implements OnInit {
       expiry: [null, Validators.required]
      
     });
+  }
+
+  prepareApplication(): BoatLicenseApplication {
+    const boatLicenseApplicationModel = this.boatApplicationForm.value;
+
+    const saveBoatLicenseApplication: BoatLicenseApplication = {
+      applicationID: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.applicationID,      
+      firstName: boatLicenseApplicationModel.firstname,
+      lastName: boatLicenseApplicationModel.lastName,
+      dateOfBirth: boatLicenseApplicationModel.ateOfBirth,
+      gender: boatLicenseApplicationModel.gender,
+      address: boatLicenseApplicationModel.address,
+      medicalConditions: boatLicenseApplicationModel.medicalConditions,
+      typeOfLicense: boatLicenseApplicationModel.typeOfLicense,
+      expiry: boatLicenseApplicationModel.expiry,
+      status: "Submitted"
+
+    };
+    return saveBoatLicenseApplication;
+  }
+
+  onSubmit() {
+    const boatLicenseApplication = this.prepareApplication();
+    this.store.dispatch(new BoatLicenseActions.SaveAction(boatLicenseApplication));
   }
 }

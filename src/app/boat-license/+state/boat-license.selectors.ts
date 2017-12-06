@@ -3,7 +3,6 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 export const selectBoatLicenseState = createFeatureSelector<BoatLicenseApplicationState>(BOATLICENSEAPPLICATION_STATE_NAME);
 
-
 export const selectBoatingLicense = createSelector(selectBoatLicenseState, (state) => state.boatLicenseApplication);
 
 
