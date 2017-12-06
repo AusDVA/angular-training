@@ -103,7 +103,10 @@
         </mat-error>
 
       </mat-form-field>
-      <ng-template #saveForm>
+
+
+
+
         <div style="margin-bottom: 1em">
 
           <button mat-raised-button color="primary" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine" class="btn btn-success">Save</button> &nbsp;
@@ -111,7 +114,7 @@
             class="btn btn-danger">Revert</button>
 
         </div>
-      </ng-template>
+  
 
     </form>
 
@@ -124,9 +127,3 @@
   <p>{{ driverLicenceForm.status | json }}</p>
 
 </mat-card>
-
-<ng-template #loadingBlock>
-  <div class="container">
-    <mat-spinner></mat-spinner>
-  </div>
-</ng-template>
