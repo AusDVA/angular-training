@@ -5,14 +5,10 @@
 
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
 
-      <mat-form-field *ngIf="!userForm.value.createUser">
-        <input matInput placeholder="User Id" formControlName="userId" (change)="getUser(userForm.value.userId)">
-      </mat-form-field>
-
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName="FirstName">
 
-        <mat-error *ngIf="userForm.get('firstNameFirstName').hasError('required')">
+        <mat-error *ngIf="userForm.get('FirstName').hasError('required')">
           First Name is
           <strong>required</strong>
         </mat-error>

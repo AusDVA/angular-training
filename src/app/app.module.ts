@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './lib/material/material.module';
 import { DriversModule } from './drivers/drivers.module';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -21,8 +23,8 @@ import { DriversModule } from './drivers/drivers.module';
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    MaterialModule,
-	DriversModule
+    MaterialModule, DriversModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
