@@ -11,6 +11,8 @@ import { MaterialModule } from './lib/material/material.module';
 import { DriversModule } from './drivers/drivers.module';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 
 @NgModule({
@@ -25,7 +27,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     EffectsModule.forRoot([]),
     MaterialModule, DriversModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 30
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
