@@ -1,3 +1,4 @@
+import { BoatLicenseModule } from './boat-license/boat-license.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,8 @@ import { MaterialModule } from './lib/material/material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    BoatLicenseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
