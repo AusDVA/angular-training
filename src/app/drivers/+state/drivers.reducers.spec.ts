@@ -1,18 +1,18 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import { driversReducer, DriversLicenceRegistrationState } from './drivers.reducers';
 import { SubmitAction } from './drivers.actions';
 
 describe('Reducers: Drivers', () => {
     const dl: DriversLicenceRegistration = {
-        FirstName: 'bob',
-        LastName: 'smith',
-        Gender: null,
-        DOB: new Date(),
-        TypeOfLicence: 'yes',
-        Address: 'here',
-        MedicalConditions: false,
-        LengthOfLicence: '4',
-        DrivingOffences: true
+        firstName: 'bob',
+        lastName: 'smith',
+        gender: null,
+        dateOfBirth: new Date(),
+        type: 'yes',
+        address: 'here',
+        medicalConditions: false,
+        lengthOfLicenceYears: '4',
+        drivingOffences: true
     };
 
     it('Submit action should set submitting to true and clear error', () => {
