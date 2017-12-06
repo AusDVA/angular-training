@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from '../../state';
 import { Router } from '@angular/router';
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import * as DriversSelectors from '../+state/drivers.selectors';
 
 @Component({

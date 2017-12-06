@@ -1,10 +1,11 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as DriversActions from '../+state/drivers.actions';
+import * as DriversLicenceRegoSelectors from '../+state/drivers.selectors';
 import { State } from '../../state';
 
 @Component({
@@ -14,8 +15,7 @@ import { State } from '../../state';
 })
 export class DriversProfileComponent implements OnInit {
   driverLicenceForm: FormGroup;
-  saving = false;
-
+  error$: Observable<string>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +24,7 @@ export class DriversProfileComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    this.error$ = this.store.select(DriversLicenceRegoSelectors.selectError);
   }
 
   createForm() {  
@@ -34,16 +35,33 @@ export class DriversProfileComponent implements OnInit {
       DOB: [null, Validators.required],
       TypeOfLicence: [null, Validators.required],
       Address: [null, Validators.required],
-      MedicalConditions: [null, Validators.required],
+      MedicalConditions: false,
       LengthOfLicence: [null, Validators.required],
-      DrivingOffences: [null, Validators.required]
+      DrivingOffences: false
     });
   }
 
   onSubmit() {
-    this.saving = true;
     // uncomment once implemeneted/fixed
-    // const newDriversLicenceRego = this.prepareDriversLicenceRego();
-    // this.store.dispatch(new DriversActions.SubmitAction(newDriversLicenceRego));
+    const newDriversLicenceRego = this.prepareDriversLicenceRego();
+    this.store.dispatch(new DriversActions.SubmitAction(newDriversLicenceRego));
   }
+
+  prepareDriversLicenceRego(): DriversLicenceRegistration {
+    const driverLicenceModel = this.driverLicenceForm.value;
+
+    const saveDriversLicence: DriversLicenceRegistration = {
+      FirstName: driverLicenceModel.FirstName,
+      LastName: driverLicenceModel.LastName,
+      Gender: driverLicenceModel.Gender,
+      DOB: driverLicenceModel.DOB,
+      TypeOfLicence: driverLicenceModel.TypeOfLicence,
+      Address: driverLicenceModel.Address,
+      MedicalConditions: driverLicenceModel.MedicalConditions,
+      LengthOfLicence: driverLicenceModel.LengthOfLicence,
+      DrivingOffences: driverLicenceModel.DrivingOffences
+    };
+    return saveDriversLicence;
+  }
+
 }
