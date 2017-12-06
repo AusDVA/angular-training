@@ -68,17 +68,17 @@ export class BoatLicenseApplicationComponent implements OnInit {
     const boatLicenseApplicationModel = this.boatApplicationForm.value;
 
     const saveBoatLicenseApplication: BoatLicenseApplication = {
-      id: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.id,
+      id: 1,
       firstName: boatLicenseApplicationModel.firstname,
       lastName: boatLicenseApplicationModel.lastName,
-      dateOfBirth: boatLicenseApplicationModel.ateOfBirth,
+      dateOfBirth: boatLicenseApplicationModel.dateOfBirth,
       gender: boatLicenseApplicationModel.gender,
       address: boatLicenseApplicationModel.address,
       medicalConditions: boatLicenseApplicationModel.medicalConditions,
       type: boatLicenseApplicationModel.typeOfLicense,
       expiry: boatLicenseApplicationModel.expiry,
       status: 'Submitted',
-      registrationNumber: 12345678
+      registrationNumber: 123456
 
     };
     return saveBoatLicenseApplication;
