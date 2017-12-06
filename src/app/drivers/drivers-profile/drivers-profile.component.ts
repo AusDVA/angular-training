@@ -1,4 +1,4 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -35,9 +35,9 @@ export class DriversProfileComponent implements OnInit {
       DOB: [null, Validators.required],
       TypeOfLicence: [null, Validators.required],
       Address: [null, Validators.required],
-      MedicalConditions: [null, Validators.required],
+      MedicalConditions: false,
       LengthOfLicence: [null, Validators.required],
-      DrivingOffences: [null, Validators.required]
+      DrivingOffences: false
     });
   }
 

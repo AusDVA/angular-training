@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { DriversEffects } from './+state/drivers.effects';
 import { StoreModule } from '@ngrx/store';
 import { driversReducer } from './+state/drivers.reducers';
 import { NgModule } from '@angular/core';
@@ -9,14 +11,13 @@ import { DriversProfileComponent } from './drivers-profile/drivers-profile.compo
 import { DriversService } from './drivers.service';
 import { MaterialModule } from '../lib/material/material.module';
 import { SubmitSuccessComponent } from './submit-success/submit-success.component';
-import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
     DriversRoutingModule,
-  ReactiveFormsModule,
-  MaterialModule,
-  HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    EffectsModule.forFeature([DriversEffects]),
     StoreModule.forFeature('drivers', {drivers: driversReducer})
 
   ],
