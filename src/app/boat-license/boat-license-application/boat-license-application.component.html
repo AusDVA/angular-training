@@ -10,7 +10,7 @@
       </section>
 
       <mat-form-field>
-        <input matInput placeholder="First Name" formControlName="firstName">
+        <input id="firstName" matInput placeholder="First Name" formControlName="firstName">
 
         <mat-error *ngIf="boatApplicationForm.get('firstName').hasError('required')">
           First Name Is
@@ -19,7 +19,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="lastName">
+        <input id="lastName" matInput placeholder="Last Name" formControlName="lastName">
 
         <mat-error *ngIf="boatApplicationForm.get('lastName').hasError('required')">
           Last Name Is
@@ -28,7 +28,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+        <input id="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
 
@@ -39,7 +39,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select placeholder="Gender" formControlName="gender">
+        <mat-select id="gender" placeholder="Gender" formControlName="gender">
           <mat-option *ngFor="let gender of genders" [value]="gender.value">
               {{ gender.viewValue }}
            </mat-option>
@@ -52,7 +52,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Address" formControlName="address">
+        <input id="address" matInput placeholder="Address" formControlName="address">
 
         <mat-error *ngIf="boatApplicationForm.get('address').hasError('required')">
           Address Is
@@ -61,11 +61,11 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Medical Conditions" formControlName="medicalConditions">
+        <input id="medicalConditions" matInput placeholder="Medical Conditions" formControlName="medicalConditions">
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select placeholder="License Type" formControlName="typeOfLicense">          
+        <mat-select id="typeOfLicense" placeholder="License Type" formControlName="typeOfLicense">          
             <mat-option *ngFor="let licenseType of licenseTypes" [value]="licenseType.value">
                 {{ licenseType.viewValue }}
              </mat-option>
@@ -78,7 +78,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-select placeholder="Expiry" formControlName="expiry">          
+        <mat-select id="expiry" placeholder="Expiry" formControlName="expiry">          
           <mat-option *ngFor="let expiryDate of expiryDates" [value]="expiryDate.value">
               {{ expiryDate.viewValue }}
            </mat-option>
@@ -91,7 +91,7 @@
       </mat-form-field>
 
       <div style="margin-bottom: 1em">
-        <button mat-raised-button color="primary" type="submit" class="btn btn-success">Save</button>
+        <button id="submit" mat-raised-button color="primary" type="submit" class="btn btn-success">Save</button>
       </div>
     </form>
   </div>
