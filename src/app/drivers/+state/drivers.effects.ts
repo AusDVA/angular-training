@@ -21,7 +21,7 @@ export class DriversEffects {
           map(driver => {
             // return new DriversActions.LoadDriverViewDataAction(driver);
             return 'FIXME';
-          }) // ,
+          }),
           catchError((error: HttpErrorResponse) => {
               console.error('Fail: LoadDriverViewDataAction');
               const message =
@@ -48,12 +48,12 @@ export class DriversEffects {
                 // return new DriversActions.SubmitDriverSuccess(null);
                 return 'FIXME';
               }
-            }) // ,
+            }),
             catchError((error: HttpErrorResponse) => {
                 console.error('Fail: LoadDriverViewData');
                 const message =
                     error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-                return of(new DrivversActions.SubmitError(message));
+                return of(new DriversActions.SubmitError(message));
             })
           );
       })
