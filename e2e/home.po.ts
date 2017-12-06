@@ -6,11 +6,15 @@ export class HomePage {
   }
 
   static getDriverMenuItem() {
-      return element(by.css('.DriverButton')).click();
+    return element(by.css('.DriverButton')).click();
   }
 
   static getDriverForm() {
-      return browser.get('/drivers/driversForm');
+    return browser.get('/drivers/driversForm');
+  }
+
+  static getHomeMenuItem() {
+    return element(by.css('.HomeButton')).click();
   }
 
   static getMessageText() {
@@ -20,9 +24,4 @@ export class HomePage {
   static getDetails() {
     return element(by.css('ngp-home button')).click();
   }
-
-  //static getNextMessage() {
-  //  return element(by.css('ngp-home button')).click();
-  //}
-
 }
