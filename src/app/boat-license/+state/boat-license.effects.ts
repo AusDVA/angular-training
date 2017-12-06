@@ -1,11 +1,9 @@
 import { switchMap, map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-// TODO: Pull in BoatLicenseApplication Service
-import { BoatLicenseApplicationService } from '../boatLicenseApplication.service';
+import { BoatLicenseService } from '../boat-license.service';
 import { Actions, Effect, toPayload } from '@ngrx/effects';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-// TODO: import BoatLicenseActions once available
 import * as BoatLicenseActions from './boat-license.actions';
 
 @Injectable()
@@ -16,7 +14,7 @@ export class BoatLicenseApplicationEffects {
         .ofType<BoatLicenseActions.GetAction>(BoatLicenseActions.GET_BOATLICENSEAPPLICATION)
         .pipe(
             switchMap((action) => {
-                return this.BoatLicenseApplicationService.getBoatLicenseApplication(action.payload);
+                return this.boatLicenseService.getBoatLicense(action.payload);
             }),
             map((boatLicenseApplication) => {
                 return new BoatLicenseActions.LoadAction(boatLicenseApplication);
@@ -32,7 +30,7 @@ export class BoatLicenseApplicationEffects {
         .ofType<BoatLicenseActions.SaveAction>(BoatLicenseActions.SAVE_BOATLICENSEAPPLICATION)
         .pipe(
             switchMap((action) => {
-                return this.BoatLicenseApplicationService.saveBoatLicenseApplication(action.payload);
+                return this.boatLicenseService.submitBoatLicense(action.payload);
             }),
             map((boatLicenseApplication) => {
                 if (boatLicenseApplication) {
@@ -49,7 +47,7 @@ export class BoatLicenseApplicationEffects {
 
     constructor(
         private actions$: Actions,
-        private boatLicenseApplicationService: BoatLicenseApplicationService
+        private boatLicenseService: BoatLicenseService
     ) { }
 }
 

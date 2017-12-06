@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import {BoatLicenseApplication} from "../models/boat-license-application.model";
+import {BoatLicenseApplication} from '../models/boat-license-application.model';
 
 export const GET_BOATLICENSEAPPLICATION = '[BoatLicenseApplication] GET';
 export const LOAD_BOATLICENSEAPPLICATION = '[BoatLicenseApplication] LOAD';
