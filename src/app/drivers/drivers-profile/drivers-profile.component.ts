@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as DriversActions from '../+state/drivers.actions';
-import { State } from '../models/state';
+import { State } from '../../state';
 
 @Component({
   selector: 'ngat-drivers-profile',
