@@ -1,4 +1,4 @@
-import { DriversLicenceRegistration } from '../models/drivers';
+import { DriversLicenceRegistration } from '../models/driversLicenceRegistration';
 import * as DriversActions from './drivers.actions';
 export const DRIVERS_STATE_NAME = 'drivers';
 
