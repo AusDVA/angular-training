@@ -23,12 +23,13 @@ export class DriversService {
   saveDriver(driver: DriversLicenceRegistration): Observable<DriversLicenceRegistration | any> {
         if (!driver.ID) {
           return this.httpClient.post<DriversLicenceRegistration>(
-            `${environment.apiUrl}/profiles`, driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
+            `${environment.apiUrl}/licences/driving`, driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
           )
           .pipe(catchError(this.errorHandler));
          } else {
           return this.httpClient.put<void>(
-            `${environment.apiUrl}/profiles/${driver.ID}`, driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
+            `${environment.apiUrl}/licences/driving/${driver.ID}`,
+              driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
           )
           .pipe(catchError(this.errorHandler));
         }
