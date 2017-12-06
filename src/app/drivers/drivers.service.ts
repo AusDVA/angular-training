@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Driver } from './models/driver';
+import { DriversLicenceRegistration } from './models/drivers';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
@@ -11,18 +11,18 @@ export class DriversService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getDriverRegoInfo(userId: number): Observable<Driver> {
-    return this.httpClient.get<Driver>(`${environment.apiUrl}/profiles/${userId}`);
+  getDriverRegoInfo(userId: number): Observable<DriversLicenceRegistration> {
+    return this.httpClient.get<DriversLicenceRegistration>(`${environment.apiUrl}/profiles/${userId}`);
   }
 
-  private errorHandler(error: Error): Observable<Driver> {
+  private errorHandler(error: Error): Observable<DriversLicenceRegistration> {
     console.error('DRIVER ERROR:', error);
     return new EmptyObservable();
   }
 
-  saveDriver(driver: Driver): Observable<Driver | any> {
+  saveDriver(driver: DriversLicenceRegistration): Observable<DriversLicenceRegistration | any> {
         if (!driver.ID) {
-          return this.httpClient.post<Driver>(
+          return this.httpClient.post<DriversLicenceRegistration>(
             `${environment.apiUrl}/profiles`, driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
           )
           .pipe(catchError(this.errorHandler));
