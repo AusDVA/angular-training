@@ -6,10 +6,16 @@ export const BOATLICENSEAPPLICATION_STATE_NAME = 'boatlicenseapplications';
 
 export interface BoatLicenseApplicationState {
     boatLicenseApplication: BoatLicenseApplication;
+    loading: boolean;
+    saving: boolean;
+    error: string;
 }
 
 export const InitialState: BoatLicenseApplicationState = {
-    boatLicenseApplication: null
+    boatLicenseApplication: null,
+    loading: false,
+    saving: false,
+    error: null
 };
 
 export function boatlicenseapplicationReducer(state = InitialState, action: BoatLicenseApplicationActions.ActionTypes) {
@@ -17,8 +23,44 @@ export function boatlicenseapplicationReducer(state = InitialState, action: Boat
 
     case BoatLicenseApplicationActions.LOAD_BOATLICENSEAPPLICATION:
       return {
-        boatLicenseApplication: action.payload
+        boatLicenseApplication: action.payload,
+        loading: false,
+        saving: false,
+        error: null
       };
+
+    case BoatLicenseApplicationActions.GET_BOATLICENSEAPPLICATION: {
+        return {
+          ...state,
+          ...{
+            loading: true,
+            saving: false,
+            error: null
+          }
+        };
+      }
+
+      case BoatLicenseApplicationActions.SAVE_BOATLICENSEAPPLICATION: {
+        return {
+          ...state,
+          ...{
+            loading: false,
+            saving: true,
+            error: null
+          }
+        };
+      }
+
+      case BoatLicenseApplicationActions.ERROR_BOATLICENSEAPPLICATION: {
+        return {
+            user: {
+              userId: null
+            },
+            loading: false,
+            saving: false,
+            error: action.payload
+        };
+      }
 
     default:
       return state;

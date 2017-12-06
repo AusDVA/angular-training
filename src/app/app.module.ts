@@ -13,6 +13,7 @@ import { DriversModule } from './drivers/drivers.module';
 import { BoatLicenseModule } from './boat-license/boat-license.module';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -26,12 +27,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    MaterialModule, DriversModule, BoatLicenseModule,
+    HttpClientModule,
     NoopAnimationsModule,
-    MaterialModule,
-    DriversModule,
-    BoatLicenseModule,
-    HttpClientModule
-
+    StoreDevtoolsModule.instrument({
+      maxAge: 30
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
