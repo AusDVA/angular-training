@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 
 const MODULES = [MatCardModule,
   MatFormFieldModule,
@@ -15,7 +17,10 @@ const MODULES = [MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule,
   MatCheckboxModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatGridListModule,
+  MatListModule
+
 ];
 
 @NgModule({
