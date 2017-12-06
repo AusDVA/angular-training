@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardComponent } from './card/card.component';
+import { DriversService } from '../drivers/drivers.service';
 
 @Component({
   selector: 'ngat-home',
@@ -11,9 +12,10 @@ export class HomeComponent implements OnInit {
   imports = [
     CardComponent
   ];
-  constructor() { }
+  constructor(private driversService: DriversService) { }
 
   ngOnInit() {
+    // getDriverRegos$ = this.driversService.getAllDriverRegoInfo();
   }
 
 }
