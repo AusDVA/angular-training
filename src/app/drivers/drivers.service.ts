@@ -24,13 +24,13 @@ export class DriversService {
         if (!driver.ID) {
           return this.httpClient.post<DriversLicenceRegistration>(
             `${environment.apiUrl}/licences/driving`, driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
-          )
+          );
           // .pipe(catchError(this.errorHandler));
          } else {
           return this.httpClient.put<void>(
             `${environment.apiUrl}/licences/driving/${driver.ID}`,
               driver, { headers: new HttpHeaders().set('content-type', 'application/json') }
-          )
+          );
           // .pipe(catchError(this.errorHandler));
         }
       }
