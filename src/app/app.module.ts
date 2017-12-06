@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './lib/material/material.module';
+import { DriversModule } from './drivers/drivers.module';
 
 
 
@@ -20,7 +21,8 @@ import { MaterialModule } from './lib/material/material.module';
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    MaterialModule
+    MaterialModule,
+	DriversModule
   ],
   providers: [],
   bootstrap: [AppComponent]

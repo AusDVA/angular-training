@@ -1,3 +1,152 @@
-<p>
-  drivers-profile works!
-</p>
+<mat-card>
+  <h2>Drivers Licence Form</h2>
+
+  <div class="container">
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <mat-form-field *ngIf="!userForm.value.createUser">
+        <input matInput placeholder="User Id" formControlName="userId" (change)="getUser(userForm.value.userId)">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="FirstName">
+
+        <mat-error *ngIf="userForm.get('firstNameFirstName').hasError('required')">
+          First Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Last Name" formControlName="LastName">
+
+        <mat-error *ngIf="userForm.get('LastName').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Gender" formControlName="Gender">
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Date of Birth" formControlName="DOB">
+
+        <mat-error *ngIf="userForm.get('DOB').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
+
+        <mat-error *ngIf="userForm.get('TypeOfLicence').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Licence Type" formControlName="TypeOfLicence">
+
+        <mat-error *ngIf="userForm.get('TypeOfLicence').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+
+      <mat-form-field>
+
+        <input matInput placeholder="Address" formControlName="Address">
+
+        <mat-error *ngIf="userForm.get('Address').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Medical Conditions" formControlName="MedicalConditions">
+
+        <mat-error *ngIf="userForm.get('MedicalConditions').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Lengh of Lincence" formControlName="LengthOfLicence">
+
+        <mat-error *ngIf="userForm.get('LengthOfLicence').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field>
+
+        <input matInput placeholder="Driving Offences" formControlName="DrivingOffences">
+
+        <mat-error *ngIf="userForm.get('DrivingOffences').hasError('required')">
+          Last Name is
+          <strong>required</strong>
+        </mat-error>
+
+      </mat-form-field>
+
+      <div *ngIf="userForm.value.createUser; else saveForm" style="margin-bottom: 1em">
+
+        <button mat-raised-button color="accent" type="submit" [disabled]="userForm.invalid || userForm.pristine || saving" class="btn btn-success">Create</button> &nbsp;
+
+        <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="userForm.invalid || userForm.pristine || saving"
+          class="btn btn-danger">Clear</button>
+
+      </div>
+
+      <ng-template #saveForm>
+        <div style="margin-bottom: 1em">
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid || userForm.pristine || saving" class="btn btn-success">Save</button> &nbsp;
+          <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="userForm.invalid || userForm.pristine || saving"
+            class="btn btn-danger">Revert</button>
+
+        </div>
+      </ng-template>
+
+    </form>
+
+  </div>
+
+  <p>
+    <strong>DEBUG DATA</strong>
+  </p>
+  <p>{{ userForm.value | json }}</p>
+  <p>{{ userForm.status | json }}</p>
+
+</mat-card>
+
+<ng-template #loadingBlock>
+  <div class="container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

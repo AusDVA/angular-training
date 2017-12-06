@@ -1,4 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ngat-drivers-profile',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriversProfileComponent implements OnInit {
 
-  constructor() { }
+  userForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+
+    this.createForm();
   }
 
+
+  createForm() {
+    this.userForm = this.formBuilder.group({
+
+    });
+  }
 }
