@@ -13,13 +13,13 @@ export class BoatLicenseService {
 
   getBoatLicense(applicationID: number): Observable<BoatLicenseApplication> {
     return this.httpClient.get<BoatLicenseApplication>(
-      `${environment.apiUrl}/profiles/${applicationID}`
+      `${environment.apiUrl}//licences/boating/${applicationID}`
     ).pipe(catchError(this.errorHandler));
   }
 
   submitBoatLicense(boatLicense: BoatLicenseApplication): Observable<BoatLicenseApplication | any> {
       return this.httpClient.post<BoatLicenseApplication>(
-        `${environment.apiUrl}/`, boatLicense, { headers: new HttpHeaders().set('content-type', 'application/json') }
+        `${environment.apiUrl}/licences/boating`, boatLicense, { headers: new HttpHeaders().set('content-type', 'application/json') }
       )
       .pipe(catchError(this.errorHandler));
   }
