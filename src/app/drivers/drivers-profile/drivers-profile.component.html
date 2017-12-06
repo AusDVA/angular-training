@@ -5,6 +5,12 @@
 
     <form [formGroup]="driverLicenceForm" (ngSubmit)="onSubmit()" novalidate>
 
+        <section class="section" *ngIf="error$ | async; let error">
+            <mat-error>
+                {{error}}
+            </mat-error>
+        </section>
+
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName="FirstName">
 
@@ -110,8 +116,8 @@
       <ng-template #saveForm>
         <div style="margin-bottom: 1em">
 
-          <button mat-raised-button color="primary" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving" class="btn btn-success">Save</button> &nbsp;
-          <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving"
+          <button mat-raised-button color="primary" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine" class="btn btn-success">Save</button> &nbsp;
+          <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine"
             class="btn btn-danger">Revert</button>
 
         </div>
