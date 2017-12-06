@@ -1,5 +1,7 @@
 import { BoatLicenseModule } from './boat-license/boat-license.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +17,7 @@ import { MaterialModule } from './lib/material/material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NoopAnimationsModule,
     MaterialModule,
     BoatLicenseModule
   ],
