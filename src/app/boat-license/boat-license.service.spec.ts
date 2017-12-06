@@ -20,10 +20,6 @@ describe('BoatLicenseService', () => {
     httpMock = TestBed.get(HttpTestingController);
   });
 
-  it('should be created', inject([BoatLicenseService], (service: BoatLicenseService) => {
-    expect(service).toBeTruthy();
-  }));
-
   it('submitBoatLicense: should return an EmptyObservable if request failed', done => {
     const fakeBoatLicense = {} as any;
 
@@ -33,7 +29,7 @@ describe('BoatLicenseService', () => {
         done();
       });
 
-    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/boat-license-application`);
+    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/licences/boating`);
     saveRequest.error(new ErrorEvent('ERROR_SUBMITTING_BOAT_LICENSE_APP_FORM'));
 
     httpMock.verify();
@@ -48,7 +44,7 @@ describe('BoatLicenseService', () => {
       done();
     });
 
-    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/boat-license-application`);
+    const saveRequest = httpMock.expectOne(`${environment.apiUrl}/licences/boating`);
     saveRequest.flush(expectedResponse);
 
     httpMock.verify();
