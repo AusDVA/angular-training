@@ -37,6 +37,25 @@ export class DriversEffects {
       );
 
   @Effect()
+    loadAllDriversViewData$ = this.actions$
+      .ofType<DriversActions.GetAllAction>(DriversActions.GET_ALL_DRIVERS)
+      .pipe(
+        switchMap(action => {
+          return this.driversService.getAllDriverRegoInfo().pipe(
+            map(driverList => {
+              return new DriversActions.LoadAction(driverList);
+            }),
+            catchError((error: HttpErrorResponse) => {
+                console.error('Fail: Get All Driver Regos');
+                const message =
+                    error.status === 404 ? 'No driver list found' : error.statusText;
+                return of(new DriversActions.SubmitErrorAction(message));
+            })
+          );
+        })
+      );
+
+  @Effect()
   submitDriver$ = this.actions$
     .ofType<DriversActions.SubmitAction>(DriversActions.SUBMIT)
     .pipe(
@@ -61,7 +80,7 @@ export class DriversEffects {
         );
       })
     );
-    
+
   // only for submit success page
   @Effect()
   loadDriverViewDataActionOnSuccessfulRego$ = this.actions$
