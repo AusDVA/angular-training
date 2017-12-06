@@ -11,6 +11,7 @@ import { DriversProfileComponent } from './drivers-profile/drivers-profile.compo
 import { DriversService } from './drivers.service';
 import { MaterialModule } from '../lib/material/material.module';
 import { SubmitSuccessComponent } from './submit-success/submit-success.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,7 @@ import { SubmitSuccessComponent } from './submit-success/submit-success.componen
     ReactiveFormsModule,
     MaterialModule,
     EffectsModule.forFeature([DriversEffects]),
-    StoreModule.forFeature('drivers', {drivers: driversReducer})
+    StoreModule.forFeature('drivers', {driversLicenceRegistrationState: driversReducer})
 
   ],
   declarations: [DriversProfileComponent, SubmitSuccessComponent],

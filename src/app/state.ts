@@ -1,5 +1,5 @@
-import { DriversLicenceRegistrationState } from './drivers/+state/drivers.reducers';
+import { DriversState } from './drivers/+state/drivers.selectors';
 
 export interface State {
-    driversLicenceRegistrationState: DriversLicenceRegistrationState;
+    drivers: DriversState;
 }
