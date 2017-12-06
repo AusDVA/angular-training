@@ -103,16 +103,6 @@
         </mat-error>
 
       </mat-form-field>
-
-      <div *ngIf="driverLicenceForm.value.createDriverLicenceRego; else saveForm" style="margin-bottom: 1em">
-
-        <button mat-raised-button color="accent" type="submit" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving" class="btn btn-success">Create</button> &nbsp;
-
-        <button mat-raised-button color="warn" type="reset" (click)="revert()" [disabled]="driverLicenceForm.invalid || driverLicenceForm.pristine || saving"
-          class="btn btn-danger">Clear</button>
-
-      </div>
-
       <ng-template #saveForm>
         <div style="margin-bottom: 1em">
 
