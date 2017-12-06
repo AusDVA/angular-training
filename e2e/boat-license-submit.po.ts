@@ -1,16 +1,22 @@
 import { browser, by, element } from 'protractor';
 
-export class HomePage {
+export class SubmitPage {
   static navigateTo() {
-    return browser.get('/home');
+    return browser.get('/boatlicense/boatLicenseForm');
   }
 
-  static getMessageText() {
-    return element(by.css('ngp-home h1')).getText();
+  static getConfirmationLabel() {
+    return element(by.id('confirmationLabel')).getText();
   }
 
-  static getNextMessage() {
-    return element(by.css('ngp-home button')).click();
+  static getRegoLabel() {
+    return element(by.id('registrationLabel')).getText();
   }
+
+  static getStatusLabel() {
+    return element(by.id('statusLabel')).getText();
+  }
+
+ 
 
     }

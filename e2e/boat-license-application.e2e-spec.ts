@@ -1,3 +1,4 @@
+//import { tick, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BoatApplicationPage } from './boat-license-application.po';
 
 let firstName;
@@ -28,12 +29,19 @@ describe('Page: Home Page', () => {
   it(`Boat License submission test`, async () => {
 
     firstName.sendKeys('MyFirstName');
+    //tick(500);
     lastName.sendKeys('MyLastName');
+    //tick(500);
     address.sendKeys('1 MyAddress Street');
+    //tick(500);
     dob.sendKeys('25/02/1826');
+    //tick(500);
     gender.sendKeys('Male');
+    //tick(500);
     typeOfLicense.sendKeys('A');
+    //tick(500);
     firstName.sendKeys('Blind');
+    //tick(500);
 
     BoatApplicationPage.submitApplication();
 
