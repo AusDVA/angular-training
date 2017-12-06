@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 
 import { BoatLicenseService } from './boat-license.service';
 
-fdescribe('BoatLicenseService', () => {
+describe('BoatLicenseService', () => {
 
   let boatLicenseService: BoatLicenseService;
 
@@ -19,10 +19,6 @@ fdescribe('BoatLicenseService', () => {
     boatLicenseService = TestBed.get(BoatLicenseService);
     httpMock = TestBed.get(HttpTestingController);
   });
-
-  it('should be created', inject([BoatLicenseService], (service: BoatLicenseService) => {
-    expect(service).toBeTruthy();
-  }));
 
   it('submitBoatLicense: should return an EmptyObservable if request failed', done => {
     const fakeBoatLicense = {} as any;
