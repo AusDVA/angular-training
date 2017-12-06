@@ -14,7 +14,7 @@ export class BoatLicenseService {
   getBoatLicense(applicationID: number): Observable<BoatLicenseApplication> {
     return this.httpClient.get<BoatLicenseApplication>(
       `${environment.apiUrl}/profiles/${applicationID}`
-    );
+    ).pipe(catchError(this.errorHandler));
   }
 
   submitBoatLicense(boatLicense: BoatLicenseApplication): Observable<BoatLicenseApplication | any> {
