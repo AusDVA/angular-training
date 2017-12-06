@@ -15,6 +15,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +24,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     NoopAnimationsModule,
     MaterialModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    MaterialModule, DriversModule,
-    NoopAnimationsModule,
     MaterialModule,
+    DriversModule,
+    BoatLicenseModule,
     BoatLicenseModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
