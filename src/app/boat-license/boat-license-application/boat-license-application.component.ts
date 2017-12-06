@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ngat-boat-license-application',
@@ -8,6 +8,24 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class BoatLicenseApplicationComponent implements OnInit {
   boatApplicationForm: FormGroup;
+
+  genders = [
+    {value: 'male', viewValue: 'Male'},
+    {value: 'female', viewValue: 'Female'},
+    {value: 'other', viewValue: 'Other'}
+  ];
+
+  licenseTypes = [
+    {value: 'small', viewValue: 'Small'},
+    {value: 'medium', viewValue: 'Medium'},
+    {value: 'large', viewValue: 'Large'}
+  ];
+
+  expiryDates = [
+    {value: '1', viewValue: '1 Year'},
+    {value: '2', viewValue: '2 Years'},
+    {value: '3', viewValue: '3 Years'}
+  ];
   
 
   constructor(
@@ -22,16 +40,15 @@ export class BoatLicenseApplicationComponent implements OnInit {
   createForm() {
     this.boatApplicationForm = this.formBuilder.group({
 
-      firstName: [null],
-      lastName: [null],
-      dateOfBirth: [null],
-      gender: [null],
-      address: [null],
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
+      dateOfBirth: [null, Validators.required],
+      gender: [null, Validators.required],
+      address: [null, Validators.required],
       medicalConditions: [null],
-      typeOfLicense: [null],
-      expiry: [null]
+      typeOfLicense: [null, Validators.required],
+      expiry: [null, Validators.required]
      
     });
   }
-
 }
