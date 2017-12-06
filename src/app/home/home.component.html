@@ -1,6 +1,16 @@
+<mat-card>
+    <h1>Drivers Licence Registrations</h1>
 
-<h1>Drivers Licence Registrations</h1>
+    <mat-grid-list cols="6">
+    <mat-grid-tile>
+        <ngat-card name="Fabio, Farina" submittedTime="2017-12-01" id="1"></ngat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <ngat-card name="Fabio, Farina" submittedTime="2017-12-02" id="2"></ngat-card>
+    </mat-grid-tile>
+    </mat-grid-list>
 
+<<<<<<< HEAD
 <mat-grid-list cols="6">
   <mat-grid-tile *ngFor="let driver of drivers; index as i; first as isFirst">
       <ngat-card name="{{driver.firstName}}, {{driver.lastName}}" dateOfBirth="{{driver.dateOfBirth}}" id="{{driver.id}}"></ngat-card>
@@ -13,3 +23,7 @@
     <strong>DEBUG DATA</strong>
   </p>
   <p>{{ drivers | json }}</p>
+=======
+    <h1>Boating Licence Registrations</h1>
+</mat-card>
+>>>>>>> 31ea27d925fd1ee76697ec6ef4614d186fb1926a

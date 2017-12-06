@@ -1,12 +1,12 @@
 export interface DriversLicenceRegistration {
     ID?: number;
-    FirstName: string;
-    LastName: string;
-    Gender: string;
-    DOB: Date;
-    TypeOfLicence: string;
-    Address: string;
-    MedicalConditions: boolean;
-    LengthOfLicence: string;
-    DrivingOffences: boolean;
+    firstName: string;
+    lastName: string;
+    gender: string;
+    dateOfBirth: Date;
+    type: string;
+    address: string;
+    medicalConditions: boolean;
+    lengthOfLicenceYears: string;
+    drivingOffences: boolean;
 }
