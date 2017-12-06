@@ -26,7 +26,7 @@ export class DriversEffects {
               console.error('Fail: LoadDriverViewDataAction');
               const message =
                   error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-              return of(new UserActions.LoadError(message));
+              return of(new DriversActions.LoadError(message));
           })
         );
       })
@@ -53,7 +53,7 @@ export class DriversEffects {
                 console.error('Fail: LoadDriverViewData');
                 const message =
                     error.status === 404 ? 'Drivers Licence not found' : error.statusText;
-                return of(new UserActions.SubmitError(message));
+                return of(new DrivversActions.SubmitError(message));
             })
           );
       })
