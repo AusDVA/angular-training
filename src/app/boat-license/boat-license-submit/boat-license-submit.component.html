@@ -1,0 +1,19 @@
+<mat-card style="text-align: center">
+    
+      <h2>Confirmation:</h2>
+        
+      <div class="container">
+      <h4>Registration Number:</h4>
+      <span>{{ BoatLicenseApplication.registrationNumber}}</span>
+    
+      <h4>Status:</h4>
+      <span>{{ BoatLicenseApplication.status}}</span>
+      <div style="margin-bottom: 1em">
+    
+        <button mat-raised-button color="warn" type="reset" (click)="onReset()" 
+          class="btn btn-danger">Back to Home</button>
+    
+      </div>
+      </div>
+    
+    </mat-card>
