@@ -32,9 +32,9 @@ export class BoatLicenseApplicationComponent implements OnInit {
   ];
 
   expiryDates = [
-    {value: '1', viewValue: '1 Year'},
-    {value: '2', viewValue: '2 Years'},
-    {value: '3', viewValue: '3 Years'}
+    {value: '2012-12-12', viewValue: '1 Year'},
+    {value: '2013-12-12', viewValue: '2 Years'},
+    {value: '2014-12-12', viewValue: '3 Years'}
   ];
   
 
@@ -48,26 +48,7 @@ export class BoatLicenseApplicationComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    // this.store.select(BoatLicenseSelectors.selectBoatLicenseState)
-    // .subscribe((boatLicenseApplication: any) => {
-    //   if (boatLicenseApplication) {
-    //     if (boatLicenseApplication.applicationID && boatLicenseApplication.applicationID !== this.applicationID) {
-    //       this.router.navigate(['boatlicense/boatLicenseSubmit', boatLicenseApplication.applicationID]);
-    //     }
-    //     boatLicenseApplication.createUser = false;
-    //     this.boatApplicationForm.patchValue(boatLicenseApplication);
-    //     this.applicationID = boatLicenseApplication.applicationID;
-    //   }
-    // });
-
-  // this.store.select(BoatLicenseSelectors.)
-  //  .subscribe(loading => this.loading = loading);
-
-  // this.store.select(UserSelectors.selectSaving)
-  //  .subscribe(saving => this.saving = saving);
-
-  // this.error$ = this.store.select(BoatLicenseSelectors.);
-}
+  }
 
   createForm() {
     this.boatApplicationForm = this.formBuilder.group({
@@ -80,7 +61,6 @@ export class BoatLicenseApplicationComponent implements OnInit {
       medicalConditions: [null],
       typeOfLicense: [null, Validators.required],
       expiry: [null, Validators.required]
-     
     });
   }
 
@@ -88,7 +68,7 @@ export class BoatLicenseApplicationComponent implements OnInit {
     const boatLicenseApplicationModel = this.boatApplicationForm.value;
 
     const saveBoatLicenseApplication: BoatLicenseApplication = {
-      id: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.id,      
+      id: boatLicenseApplicationModel.createApplication ? 0 : boatLicenseApplicationModel.id,
       firstName: boatLicenseApplicationModel.firstname,
       lastName: boatLicenseApplicationModel.lastName,
       dateOfBirth: boatLicenseApplicationModel.ateOfBirth,
@@ -97,7 +77,8 @@ export class BoatLicenseApplicationComponent implements OnInit {
       medicalConditions: boatLicenseApplicationModel.medicalConditions,
       type: boatLicenseApplicationModel.typeOfLicense,
       expiry: boatLicenseApplicationModel.expiry,
-      status: 'Submitted'
+      status: 'Submitted',
+      registrationNumber: 12345678
 
     };
     return saveBoatLicenseApplication;
