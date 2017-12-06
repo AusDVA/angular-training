@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private driversService: DriversService) { }
 
   ngOnInit() {
-    //getDriverRegos$ = this.driversService.getAllDriverRegoInfo();
+    // getDriverRegos$ = this.driversService.getAllDriverRegoInfo();
   }
 
 }
