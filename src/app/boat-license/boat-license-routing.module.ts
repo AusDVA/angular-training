@@ -7,7 +7,7 @@ import { BoatLicenseSubmitComponent } from './boat-license-submit/boat-license-s
 const routes: Routes = [
   { path: '', redirectTo: 'boatLicenseForm', pathMatch: 'full' },
   { path: 'boatLicenseForm', component: BoatLicenseApplicationComponent, pathMatch: 'full' },
-  { path: 'boatLicenseSubmit', component: BoatLicenseSubmitComponent, pathMatch: 'full' }
+  { path: 'boatLicenseSubmit/:id', component: BoatLicenseSubmitComponent, pathMatch: 'full' }
   
 ];
 

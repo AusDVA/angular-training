@@ -48,17 +48,17 @@ export class BoatLicenseApplicationComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.store.select(BoatLicenseSelectors.selectBoatLicenseState)
-    .subscribe((boatLicenseApplication: any) => {
-      if (boatLicenseApplication) {
-        if (boatLicenseApplication.applicationID && boatLicenseApplication.applicationID !== this.applicationID) {
-          this.router.navigate(['boatlicense/boatLicenseForm', boatLicenseApplication.applicationID]);
-        }
-        boatLicenseApplication.createUser = false;
-        this.boatApplicationForm.patchValue(boatLicenseApplication);
-        this.applicationID = boatLicenseApplication.applicationID;
-      }
-    });
+    // this.store.select(BoatLicenseSelectors.selectBoatLicenseState)
+    // .subscribe((boatLicenseApplication: any) => {
+    //   if (boatLicenseApplication) {
+    //     if (boatLicenseApplication.applicationID && boatLicenseApplication.applicationID !== this.applicationID) {
+    //       this.router.navigate(['boatlicense/boatLicenseSubmit', boatLicenseApplication.applicationID]);
+    //     }
+    //     boatLicenseApplication.createUser = false;
+    //     this.boatApplicationForm.patchValue(boatLicenseApplication);
+    //     this.applicationID = boatLicenseApplication.applicationID;
+    //   }
+    // });
 
   // this.store.select(BoatLicenseSelectors.)
   //  .subscribe(loading => this.loading = loading);
@@ -67,13 +67,6 @@ export class BoatLicenseApplicationComponent implements OnInit {
   //  .subscribe(saving => this.saving = saving);
 
   // this.error$ = this.store.select(BoatLicenseSelectors.);
-
-  this.activatedRoute.params.subscribe(params => {
-    const id = +params['id']; // (+) converts string 'id' to a number
-    if (id) {
-      this.store.dispatch(new BoatLicenseActions.GetAction(id));
-    }
-  });
 }
 
   createForm() {
@@ -113,5 +106,6 @@ export class BoatLicenseApplicationComponent implements OnInit {
   onSubmit() {
     const boatLicenseApplication = this.prepareApplication();
     this.store.dispatch(new BoatLicenseActions.SaveAction(boatLicenseApplication));
+    this.router.navigate(['boatlicense/boatLicenseSubmit', boatLicenseApplication.applicationID]);
   }
 }
